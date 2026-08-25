@@ -33,6 +33,13 @@ jobs:
           fi
           git config user.name  "injury-terminal-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # правка только метки времени — это сверка, а не новые данные
+          lines=$(git diff -U0 -- data.js | grep -c '^[+-][^+-]' || true)
+          if [ "$lines" -le 2 ]; then
+            msg="data: сверка с источниками"
+          else
+            msg="data: новые записи"
+          fi
           git add data.js
-          git commit -m "data: обновление $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git commit -m "$msg $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
