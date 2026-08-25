@@ -198,138 +198,28 @@
   .tip b{font-weight:600}
 
   /* ─────────── Панель управления ─────────── */
-  .controls{position:sticky;top:var(--barh,64px);z-index:40;background:rgba(244,244,242,.9);
+  .controls{z-index:40;background:rgba(244,244,242,.9);
     backdrop-filter:blur(12px);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line);
     padding:12px 0}
-  .tabbar{display:flex;gap:8px;margin-bottom:11px}
-  .tab{flex:1;min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto;
-    align-items:center;gap:1px 10px;cursor:pointer;text-align:left;
-    border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:9px 14px;
-    transition:transform .25s var(--ease),box-shadow .25s var(--ease),
-      background .3s var(--ease),border-color .2s,color .2s}
-  .tab:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
-  .tab .n{grid-column:1;font-family:var(--head);font-size:13.5px;letter-spacing:.04em;
-    text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .tab .s{grid-column:1;font-size:10.5px;color:var(--muted);white-space:nowrap;
-    overflow:hidden;text-overflow:ellipsis}
-  .tab .c{grid-column:2;grid-row:1 / span 2;flex:none;font-size:12px;font-variant-numeric:tabular-nums;color:var(--muted);
-    background:var(--line-soft);border-radius:var(--r-pill);padding:2px 9px;transition:background .25s,color .25s}
-  .tab[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
-  .tab[aria-pressed="true"] .s{color:rgba(255,255,255,.55)}
-  .tab[aria-pressed="true"] .c{background:rgba(255,255,255,.16);color:#fff}
-
-  /* ─────────── Вкладка «против кого ставить» ─────────── */
-  .fadeNote{margin-bottom:18px;padding:16px 18px;border-radius:var(--r);
-    background:var(--surface);border:1px solid var(--line);box-shadow:var(--sh-1)}
-  .fadeNote .lead{font-size:14.5px;color:var(--ink-2);max-width:88ch}
-  .fadeNote .warn{margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft);
-    font-size:12.5px;color:var(--muted)}
-  .fadeCards{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
-  .fadeCard .top{align-items:center}
-  .fadeCard .pos{display:grid;place-items:center;width:26px;height:26px;border-radius:8px;
-    background:var(--ink);color:#fff;font:600 13px var(--body);font-variant-numeric:tabular-nums}
-  .fadeCard .draw{margin-left:auto;font-size:11px;letter-spacing:.04em;text-transform:uppercase;
-    padding:3px 9px;border-radius:var(--r-pill);background:var(--line-soft);color:var(--ink-2)}
-  .fadeCard .draw.seed{background:var(--accent-050);color:var(--accent-700);font-weight:600}
-  .fadeCard .draw.likely{background:transparent;border:1px dashed var(--line);color:var(--muted)}
-
-  .meter{--track:var(--line-soft);height:8px;margin:2px 0 8px;border-radius:var(--r-pill);
-    background:var(--track);overflow:hidden}
-  .meter .fill{width:0;height:100%;border-radius:var(--r-pill);background:var(--accent);
-    transition:width .95s var(--ease)}
-  .meter[data-band="mid"]{--track:rgba(236,131,90,.16)}
-  .meter[data-band="mid"] .fill{background:#ec835a}
-  .meter[data-band="hi"]{--track:rgba(208,59,59,.14)}
-  .meter[data-band="hi"] .fill{background:var(--crit)}
-  .scoreLine{display:flex;align-items:baseline;gap:6px;font-size:12.5px;color:var(--muted)}
-  .scoreLine b{font-size:22px;font-weight:600;color:var(--ink)}
-  .scoreLine .cnt{margin-left:auto}
-
-  .sigs{list-style:none;margin-top:12px;padding-top:11px;border-top:1px solid var(--line-soft);
-    display:flex;flex-direction:column;gap:8px}
-  .sigs li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 9px;font-size:12.5px}
-  .sigs .s{font-weight:600;color:var(--ink)}
-  .sigs .s::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
-    background:var(--k);margin-right:7px;vertical-align:middle}
-  .sigs .d{color:var(--muted)}
-  .sigs a{margin-left:auto;color:var(--accent-700);text-decoration:none}
-  .sigs a:hover{text-decoration:underline}
-
-  .chartCard.how .howBody{margin-top:6px;font-size:13px;color:var(--ink-2)}
-  .weights{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
-  .weights .w{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:var(--r-pill);
-    background:var(--surface-2);border:1px solid var(--line-soft);font-size:11.5px;color:var(--ink-2)}
-  .weights .w b{font-variant-numeric:tabular-nums;color:var(--accent-700)}
-
-  /* ─────────── Карточка игрока ─────────── */
-  .modal[hidden]{display:none}
-  .modal{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:24px}
-  .modal .backdrop{position:absolute;inset:0;background:rgba(11,11,11,.45);
-    backdrop-filter:blur(3px);animation:fade .25s var(--ease)}
-  .sheet{position:relative;width:min(680px,100%);max-height:86vh;overflow-y:auto;
-    background:var(--surface);border-radius:var(--r);box-shadow:var(--sh-3);padding:26px 28px 24px;
-    animation:sheetIn .35s var(--ease)}
-  @keyframes sheetIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
-  .sheet .x{position:absolute;top:14px;right:14px;width:32px;height:32px;border:none;border-radius:50%;
-    background:var(--line-soft);color:var(--ink-2);cursor:pointer;font:18px/1 var(--body);
-    transition:background .2s,transform .2s var(--ease)}
-  .sheet .x:hover{background:var(--accent-050);color:var(--accent-700);transform:rotate(90deg)}
-  .sheet .head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:6px}
-  .sheet h2{font-family:var(--head);font-size:clamp(24px,3vw,32px);line-height:1.06;
-    text-transform:uppercase;margin:2px 0 14px}
-  .sheet .meterBox{margin-bottom:18px}
-  .sheet .tl{list-style:none;display:flex;flex-direction:column;gap:0}
-  .sheet .tl li{position:relative;padding:0 0 18px 22px;border-left:1px solid var(--line)}
-  .sheet .tl li:last-child{border-left-color:transparent;padding-bottom:0}
-  .sheet .tl li::before{content:"";position:absolute;left:-5px;top:5px;width:9px;height:9px;
-    border-radius:50%;background:var(--k,var(--accent));box-shadow:0 0 0 3px var(--surface)}
-  .sheet .tl .when{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;
-    font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
-  .sheet .tl .when b{color:var(--ink);font-family:var(--head);font-size:12.5px;letter-spacing:.07em}
-  .sheet .tl p{margin-top:5px;font-size:14px;color:var(--ink-2)}
-  .sheet .tl a{font-size:12.5px;color:var(--accent-700);text-decoration:none}
-  .sheet .tl a:hover{text-decoration:underline}
-  .sheet .secTitle{font-family:var(--head);font-size:12px;letter-spacing:.09em;text-transform:uppercase;
-    color:var(--muted);margin:0 0 12px}
-  .sheet .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding-top:16px;
-    border-top:1px solid var(--line-soft)}
-
-  /* ─────────── Копирование для поста ─────────── */
-  .copy{border:1px solid var(--line);background:var(--surface);border-radius:var(--r-pill);
-    padding:5px 11px;cursor:pointer;font:500 12px var(--body);color:var(--ink-2);
-    transition:border-color .2s,color .2s,background .2s,transform .2s var(--ease)}
-  .copy:hover{border-color:var(--accent);color:var(--accent-700);background:var(--accent-050);
-    transform:translateY(-1px)}
-  .card .foot .copy{margin-left:auto}
-  .card .foot .star{margin-left:0}
-  .toast{position:fixed;left:50%;bottom:26px;z-index:80;transform:translate(-50%,16px);
-    padding:11px 18px;border-radius:var(--r-pill);background:var(--ink);color:#fff;
-    font-size:13px;opacity:0;pointer-events:none;
-    transition:opacity .25s var(--ease),transform .25s var(--ease)}
-  .toast.on{opacity:1;transform:translate(-50%,0)}
-
-  /* Имя игрока в карточке ленты кликабельно */
-  .card .who .nameBtn{border:none;background:none;padding:0;cursor:pointer;color:inherit;
-    font:inherit;text-align:left;border-bottom:1px solid transparent;transition:border-color .2s}
-  .card .who .nameBtn:hover{border-bottom-color:var(--k)}
-
-  /* ─────────── Проверка модели ─────────── */
-  .btCard{margin-bottom:18px;padding:16px 18px;border-radius:var(--r);background:var(--surface);
-    border:1px solid var(--line);box-shadow:var(--sh-1);display:grid;
-    grid-template-columns:auto minmax(0,1fr);gap:4px 20px;align-items:center}
-  .btCard .num{font-family:var(--body);font-weight:600;font-size:38px;line-height:1}
-  .btCard .lbl{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-  .btCard .txt{grid-column:2;font-size:13px;color:var(--ink-2)}
-  .btCard .main{grid-column:1 / -1;margin-top:10px;padding-top:10px;
-    border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--muted)}
-  .fadeCard .after{margin-top:9px;font-size:12px;color:var(--muted)}
-  .fadeCard .after b{color:var(--ink-2);font-weight:600}
-
-  /* Метка свежести данных */
-  .live.stale{background:rgba(227,145,0,.14);color:#8a5b00}
-  .live.stale i{background:#e39100}
-  .live.stale i::after{animation:none}
-  #updatedLine{font-variant-numeric:tabular-nums}
+  /* ─────────── Меню разделов ─────────── */
+  .nav{position:sticky;top:var(--barh,64px);z-index:45;background:rgba(255,255,255,.92);
+    backdrop-filter:blur(12px) saturate(1.4);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:stretch;gap:2px;overflow-x:auto;scrollbar-width:none}
+  .nav .wrap::-webkit-scrollbar{display:none}
+  .navItem{position:relative;flex:none;display:flex;align-items:center;gap:8px;
+    padding:14px 16px;border:none;background:none;cursor:pointer;white-space:nowrap;
+    font:500 14px var(--body);color:var(--n600);transition:color .2s}
+  .navItem:hover{color:var(--ink)}
+  .navItem::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:2px;
+    background:var(--accent);transform:scaleX(0);transform-origin:center;
+    transition:transform .3s var(--ease)}
+  .navItem:hover::after{transform:scaleX(.4)}
+  .navItem[aria-pressed="true"]{color:var(--ink);font-weight:600}
+  .navItem[aria-pressed="true"]::after{transform:scaleX(1)}
+  .navItem .c{font-size:11.5px;font-variant-numeric:tabular-nums;color:var(--muted);
+    background:var(--line-soft);border-radius:var(--r-pill);padding:2px 8px;transition:background .25s,color .25s}
+  .navItem[aria-pressed="true"] .c{background:var(--accent-050);color:var(--accent-700)}
+  .navSep{flex:none;align-self:center;width:1px;height:20px;background:var(--line);margin:0 10px}
 
   /* ─────────── Матчи ─────────── */
   .dayRow .prow button{min-width:96px;text-align:center;display:block}
@@ -344,7 +234,7 @@
   .evt .n{font-size:11.5px;color:var(--muted)}
 
   .mtable{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
-    overflow:hidden;box-shadow:var(--sh-1)}
+    overflow:clip;box-shadow:var(--sh-1)}
   .mrow{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;align-items:center;
     padding:9px 14px;border-bottom:1px solid var(--line-soft);transition:background .2s}
   .mrow:last-child{border-bottom:none}
@@ -367,12 +257,12 @@
 
   /* ─────────── Рейтинг ─────────── */
   .rtable{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
-    overflow:hidden;box-shadow:var(--sh-1)}
+    overflow:clip;box-shadow:var(--sh-1)}
   .rhead,.rrow{display:grid;grid-template-columns:56px 40px minmax(0,1fr) 96px 108px;
     gap:12px;align-items:center;padding:9px 16px}
   .rhead{background:var(--surface-2);border-bottom:1px solid var(--line);
     font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
-    position:sticky;top:var(--stick,150px);z-index:5}
+    position:sticky;top:var(--stick,110px);z-index:5}
   .rrow{border-bottom:1px solid var(--line-soft);transition:background .2s}
   .rrow:last-child{border-bottom:none}
   .rrow:hover{background:var(--surface-2)}
@@ -380,15 +270,15 @@
   .rrow .mv{font-size:11.5px;font-variant-numeric:tabular-nums}
   .rrow .mv.up{color:#0a6b0a}
   .rrow .mv.dn{color:var(--crit)}
-  .rrow .mv.same{color:var(--n300,#cfcfcb)}
+  .rrow .mv.same{color:#cfcfcb}
   .rrow .who{display:flex;align-items:baseline;gap:8px;min-width:0}
   .rrow .who button{border:none;background:none;padding:0;cursor:pointer;font:500 14.5px var(--body);
     color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
   .rrow .who button:hover{color:var(--accent-700);border-bottom-color:var(--accent)}
   .rrow .ctry{font-size:11.5px;color:var(--muted);white-space:nowrap}
-  .rrow .pts{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
-  .rrow .def{text-align:right;font-variant-numeric:tabular-nums;font-size:13px;color:var(--ink-2)}
+  .rhead .pts,.rrow .pts{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  .rhead .def,.rrow .def{text-align:right;font-variant-numeric:tabular-nums;font-size:13px;color:var(--ink-2)}
   .rrow .def.zero{color:var(--muted)}
   .rmore{display:block;width:100%;padding:13px;border:none;background:var(--surface-2);cursor:pointer;
     font:600 13px var(--body);color:var(--accent-700);transition:background .2s}
@@ -411,15 +301,49 @@
   .sheet .nextM b{font-weight:600}
   .sheet .nextM .t{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
     display:block;margin-bottom:4px}
+  .sheet .nextM .nm{border:none;background:none;padding:0;cursor:pointer;font:600 13px var(--body);
+    color:var(--accent-700);text-decoration:underline}
 
-  @media (max-width:760px){
-    .rhead,.rrow{grid-template-columns:44px 34px minmax(0,1fr) 70px;gap:8px;padding:9px 12px}
-    .rhead .def,.rrow .def{display:none}
-    .mrow{grid-template-columns:46px minmax(0,1fr);row-gap:6px}
-    .mrow .right{grid-column:2}
-    .sheet .prof{grid-template-columns:72px minmax(0,1fr);gap:14px}
-    .sheet .ph{width:72px;height:72px}
-  }
+  /* ─────────── Таймлайн и кнопки в карточке игрока ─────────── */
+  .sheet .tl{list-style:none;display:flex;flex-direction:column;gap:0}
+  .sheet .tl li{position:relative;padding:0 0 18px 22px;border-left:1px solid var(--line)}
+  .sheet .tl li:last-child{border-left-color:transparent;padding-bottom:0}
+  .sheet .tl li::before{content:"";position:absolute;left:-5px;top:5px;width:9px;height:9px;
+    border-radius:50%;background:var(--k,var(--accent));box-shadow:0 0 0 3px var(--surface)}
+  .sheet .tl .when{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;
+    font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .sheet .tl .when b{color:var(--ink);font-family:var(--head);font-size:12.5px;letter-spacing:.07em}
+  .sheet .tl p{margin-top:5px;font-size:14px;color:var(--ink-2)}
+  .sheet .tl a{font-size:12.5px;color:var(--accent-700);text-decoration:none}
+  .sheet .tl a:hover{text-decoration:underline}
+  .sheet .secTitle{font-family:var(--head);font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 12px}
+  .sheet .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding-top:16px;
+    border-top:1px solid var(--line-soft)}
+
+  /* ─────────── Копирование для поста ─────────── */
+  .copy{border:1px solid var(--line);background:var(--surface);border-radius:var(--r-pill);
+    padding:5px 11px;cursor:pointer;font:500 12px var(--body);color:var(--ink-2);
+    text-decoration:none;transition:border-color .2s,color .2s,background .2s,transform .2s var(--ease)}
+  .copy:hover{border-color:var(--accent);color:var(--accent-700);background:var(--accent-050);
+    transform:translateY(-1px)}
+  .card .foot .copy{margin-left:auto}
+  .card .foot .star{margin-left:0}
+  .toast{position:fixed;left:50%;bottom:26px;z-index:80;transform:translate(-50%,16px);
+    padding:11px 18px;border-radius:var(--r-pill);background:var(--ink);color:#fff;
+    font-size:13px;opacity:0;pointer-events:none;
+    transition:opacity .25s var(--ease),transform .25s var(--ease)}
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+
+  /* Имя игрока в карточке ленты кликабельно */
+  .card .who .nameBtn{border:none;background:none;padding:0;cursor:pointer;color:inherit;
+    font:inherit;text-align:left;border-bottom:1px solid transparent;transition:border-color .2s}
+  .card .who .nameBtn:hover{border-bottom-color:var(--k)}
+
+  /* Метка свежести данных */
+  .live.stale{background:rgba(227,145,0,.14);color:#8a5b00}
+  .live.stale i{background:#e39100}
+  .live.stale i::after{animation:none}
 
   .chips{display:flex;flex-wrap:wrap;gap:8px}
   .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:var(--r-pill);
@@ -581,15 +505,18 @@
     .hero{padding:34px 0 22px}
     .tiles{gap:10px}
     .cards,.fadeCards{grid-template-columns:1fr}
+    .rhead,.rrow{grid-template-columns:44px 34px minmax(0,1fr) 70px;gap:8px;padding:9px 12px}
+    .rhead .def,.rrow .def{display:none}
+    .mrow{grid-template-columns:46px minmax(0,1fr);row-gap:6px}
+    .mrow .right{grid-column:2}
+    .sheet .prof{grid-template-columns:72px minmax(0,1fr);gap:14px}
+    .sheet .ph{width:72px;height:72px}
     .modal{padding:0}
     .sheet{width:100%;max-height:92vh;border-radius:var(--r) var(--r) 0 0;align-self:end;padding:22px 18px}
     .btCard{grid-template-columns:1fr}
-    .tabbar{gap:6px;overflow-x:auto;padding-bottom:3px;scrollbar-width:thin}
-    .tabbar::-webkit-scrollbar{height:4px}
-    .tabbar::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
-    .tab{flex:0 0 auto;padding:8px 12px;gap:2px 8px}
-    .tab .s{display:none}
-    .tab .n{font-size:12.5px}
+    .navItem{padding:12px 12px;font-size:13px;gap:6px}
+    .navItem::after{left:12px;right:12px}
+    .navSep{margin:0 4px}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -633,6 +560,10 @@
   <div class="win"><div class="track" id="track"></div></div>
 </div>
 
+<nav class="nav" id="nav">
+  <div class="wrap" id="tabs"></div>
+</nav>
+
 <main id="top">
   <section class="hero">
     <div class="wrap grid">
@@ -656,7 +587,6 @@
 
   <section class="controls" id="controls">
     <div class="wrap">
-      <div class="tabbar" id="tabs"></div>
       <div class="chips" id="filters"></div>
       <div class="players" id="idxRow">
         <span class="cap" id="idxTitle"></span>
@@ -961,17 +891,15 @@ function renderTabs(){
     if (tab === "fade") return fadeList().length;
     const keep = TAB; TAB = tab; const c = scope().length; TAB = keep; return c;
   };
-  $("tabs").innerHTML = TABS.map(tab => {
-    const key = {atp:"tabAtp", wta:"tabWta", wd:"tabWd", fade:"tabFade",
-                 matches:"tabMatches", ranking:"tabRanking"}[tab];
-    const sub = {atp:"tabAtpSub", wta:"tabWtaSub", wd:"tabWdSub", fade:"tabFadeSub",
-                 matches:"tabMatchesSub", ranking:"tabRankingSub"}[tab];
-    return `<button class="tab" data-tab="${tab}" aria-pressed="${tab === TAB}">
-        <span class="n">${t(key)}</span>
-        <span class="s">${t(sub)}</span>
+  const label = {atp:"tabAtp", wta:"tabWta", wd:"tabWd", fade:"tabFade",
+                 matches:"tabMatches", ranking:"tabRanking"};
+  $("tabs").innerHTML = TABS.map(tab =>
+    /* черта отделяет ленту травм от общетеннисных разделов */
+    (tab === "matches" ? '<span class="navSep"></span>' : "") +
+    `<button class="navItem" data-tab="${tab}" aria-pressed="${tab === TAB}">
+        <span class="n">${t(label[tab])}</span>
         <span class="c">${count(tab)}</span>
-      </button>`;
-  }).join("");
+      </button>`).join("");
 }
 
 /* ─────────── Плитки со сводкой ─────────── */
@@ -1678,13 +1606,18 @@ addEventListener("hashchange", applyHash);
 function syncBarHeight(){
   const bar = $("bar").offsetHeight;
   document.documentElement.style.setProperty("--barh", bar + "px");
-  document.documentElement.style.setProperty("--stick", (bar + $("controls").offsetHeight) + "px");
+  document.documentElement.style.setProperty("--stick", (bar + $("nav").offsetHeight) + "px");
 }
 addEventListener("resize", syncBarHeight);
+$("bar").addEventListener("transitionend", syncBarHeight);   // шапка сжимается плавно
 addEventListener("scroll", () => {
   const y = scrollY, h = document.body.scrollHeight - innerHeight;
   $("progress").style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
-  $("bar").classList.toggle("stuck", y > 8);
+  const stuck = y > 8;
+  if (stuck !== $("bar").classList.contains("stuck")){
+    $("bar").classList.toggle("stuck", stuck);
+    syncBarHeight();            // шапка при скролле сжимается — меню должно поехать следом
+  }
   $("totop").classList.toggle("on", y > 600);
 }, {passive:true});
 
