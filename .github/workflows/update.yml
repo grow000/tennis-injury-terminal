@@ -30,7 +30,7 @@ jobs:
 
       - name: Закоммитить, если данные изменились
         run: |
-          files="data.js rankings.js matches.js players.js"
+          files="data.js rankings.js matches.js players.js index.html sitemap.xml"
           if git diff --quiet -- $files; then
             echo "изменений нет"
             exit 0

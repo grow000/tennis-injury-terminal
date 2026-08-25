@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://grow000.github.io/tennis-injury-terminal/sitemap.xml

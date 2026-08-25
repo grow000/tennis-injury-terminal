@@ -314,6 +314,25 @@ def main():
             ordered.append(s_)
     photos = build_photos(load_prev("players.js", "PHOTOS"), ordered, names)
 
+    print("Карта сайта…")
+    site = "https://grow000.github.io/tennis-injury-terminal/"
+    io.open("sitemap.xml", "w", encoding="utf-8", newline="").write(
+        '<?xml version="1.0" encoding="UTF-8"?>
+'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+'
+        '  <url>
+    <loc>%s</loc>
+    <lastmod>%s</lastmod>
+'
+        '    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+  </url>
+'
+        '</urlset>
+' % (site, today.isoformat()))
+    print("  sitemap.xml обновлён")
+
     print("Запись…")
     stamp = "/* Собрано автоматически: extra.py. Руками не править. */"
     write_js("rankings.js", stamp, [("RANKING", ranking)])

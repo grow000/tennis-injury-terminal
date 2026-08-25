@@ -358,6 +358,46 @@ def add_tournaments(src, records):
     return src, added
 
 
+def write_seo(src, page="index.html"):
+    """Текстовая копия свежих записей внутрь <noscript>.
+
+    Весь контент сайта рисует JavaScript. Google его выполняет, Яндекс — далеко
+    не всегда, поэтому в разметке должен лежать обычный текст, который робот
+    прочитает без скриптов. Пользователь этот блок не видит никогда.
+    """
+    recs = []
+    for m in REC.finditer(src):
+        ru = re.search(r'\n   ru:"(.*?)",\n', m.group(0), re.S)
+        code = re.search(r'code:"(\w+)"', m.group(0))
+        who = re.search(r'whoRu:"([^"]+)"', m.group(0))
+        if not ru:
+            continue
+        recs.append((m.group("ts"), who.group(1) if who else m.group("who"),
+                     code.group(1) if code else "", strip_tags(ru.group(1))))
+    recs.sort(reverse=True)
+
+    items = "\n".join(
+        "    <li><b>%s</b> — %s <i>(%s, %s)</i></li>" % (who, text, code, ts[:10])
+        for ts, who, code, text in recs[:25])
+    block = (
+        '<noscript id="seo">\n'
+        '  <h1>Травмы и снятия в теннисе: ATP и WTA</h1>\n'
+        '  <p>Кто травмирован, кто снялся с турнира и кто возвращается после паузы — '
+        'записи по игрокам топ-250 ATP и WTA со ссылкой на источник. '
+        'Свежие %d записей:</p>\n  <ul>\n%s\n  </ul>\n'
+        '  <p>Включите JavaScript, чтобы пользоваться поиском, фильтрами, '
+        'расписанием матчей и рейтингом.</p>\n</noscript>' % (len(recs[:25]), items))
+
+    try:
+        html = io.open(page, encoding="utf-8").read()
+    except Exception:
+        return
+    new = re.sub(r'<noscript id="seo">.*?</noscript>', block.replace("\\", "\\\\"), html, flags=re.S)
+    if new != html:
+        io.open(page, "w", encoding="utf-8", newline="").write(new)
+        print("  index.html: текстовая лента для роботов обновлена")
+
+
 def main():
     dry = "--dry-run" in sys.argv
     src = io.open(DATA, encoding="utf-8").read()
@@ -410,6 +450,7 @@ def main():
     else:
         io.open(DATA, "w", encoding="utf-8", newline="").write(src)
         print("\n%s записан, UPDATED = %s" % (DATA, now))
+        write_seo(src)
 
 
 if __name__ == "__main__":
