@@ -1,0 +1,38 @@
+name: update data
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"   # каждые 3 часа, время UTC
+  workflow_dispatch:         # и вручную кнопкой во вкладке Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Обновить data.js
+        run: python update.py
+
+      - name: Закоммитить, если данные изменились
+        run: |
+          if git diff --quiet -- data.js; then
+            echo "изменений нет"
+            exit 0
+          fi
+          git config user.name  "injury-terminal-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.js
+          git commit -m "data: обновление $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push

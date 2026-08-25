@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tennis Injury Terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f2f2f3; --surface:#e9e9ea; --card:#fbfbfc;
+    --text:#1d1f20; --accent:#5980a6; --accent-700:#416180;
+    --n300:#d4d4d7; --n500:#98989b; --n600:#7a7a7d; --n700:#5d5d60; --n900:#2b2b2d;
+    --divider:color-mix(in srgb, #1d1f20 14%, transparent);
+    --alert:#a33b32;
+    --head:"Oswald","Barlow Condensed",system-ui,sans-serif;
+    --body:"IBM Plex Sans","Barlow",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg); color:var(--text); font:14px/1.55 var(--body);
+    display:grid; grid-template-rows:auto auto 1fr; height:100vh; overflow:hidden;
+  }
+  .mono{font-variant-numeric:tabular-nums}
+
+  .top{display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+    gap:24px;padding:11px 20px;border-bottom:1px solid var(--divider)}
+  .brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .mark{width:30px;height:30px;border:1px solid var(--accent);display:grid;place-items:center;flex:none}
+  .mark i{width:12px;height:12px;border:1px solid var(--accent);border-radius:50%}
+  .brand .t{font-family:var(--head);font-weight:600;font-size:20px;line-height:1;text-transform:uppercase;display:block}
+  .brand .s{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--n700)}
+
+  .find{display:flex;align-items:center;gap:8px;max-width:520px;width:100%;justify-self:center}
+  .find input{flex:1;background:var(--card);border:1px solid var(--divider);color:var(--text);
+    padding:8px 12px;font:14px var(--body)}
+  .find input:focus{outline:1px solid var(--accent)}
+  .find button{background:none;border:1px solid var(--divider);color:var(--n700);
+    padding:8px 11px;cursor:pointer;font:12px var(--body);letter-spacing:.05em;text-transform:uppercase}
+
+  .right{display:flex;align-items:center;gap:14px}
+  .live{display:flex;align-items:center;gap:7px;font-size:11.5px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--n700)}
+  .live i{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+  .lang button{background:none;border:1px solid var(--divider);padding:6px 10px;cursor:pointer;
+    font:12px var(--body);color:var(--n600)}
+  .lang button[aria-pressed="true"]{background:var(--n900);color:#fff;border-color:var(--n900)}
+
+  .wire{display:flex;align-items:center;gap:14px;padding:7px 20px;
+    background:var(--surface);border-bottom:1px solid var(--divider);overflow:hidden}
+  .wire .lbl{font-family:var(--head);font-size:12px;letter-spacing:.08em;color:var(--accent);flex:none}
+  .track{display:flex;gap:36px;white-space:nowrap;animation:marquee 42s linear infinite}
+  .track:hover{animation-play-state:paused}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .track span{font-size:12.5px;color:var(--n700)}
+  .track b{color:var(--text);font-weight:600}
+
+  .main{display:grid;grid-template-columns:230px 1fr 300px;min-height:0;overflow:hidden}
+  .side,.feedcol,.promo{min-height:0;display:flex;flex-direction:column;overflow:hidden}
+  .side{border-right:1px solid var(--divider);overflow-y:auto}
+  .promo{border-left:1px solid var(--divider);overflow-y:auto;background:var(--surface)}
+
+  .block{padding:14px 16px;border-bottom:1px solid var(--divider)}
+  .block h3{font-family:var(--head);font-size:12px;letter-spacing:.09em;color:var(--n700);
+    margin-bottom:9px;text-transform:uppercase;font-weight:600}
+
+  .stat{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0}
+  .stat .v{font-family:var(--head);font-size:19px}
+  .stat .l{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--n600)}
+
+  .fl{display:flex;justify-content:space-between;align-items:center;width:100%;
+    background:none;border:none;padding:6px 0;cursor:pointer;font:13.5px var(--body);color:var(--n700)}
+  .fl:hover{color:var(--text)}
+  .fl[aria-pressed="true"]{color:var(--accent);font-weight:600}
+  .fl .c{font-size:12px;color:var(--n500);font-variant-numeric:tabular-nums}
+
+  .idx{display:flex;flex-wrap:wrap;gap:5px}
+  .idx button{background:var(--card);border:1px solid var(--divider);padding:3px 7px;
+    cursor:pointer;font:12px var(--body);color:var(--n700)}
+  .idx button:hover{border-color:var(--accent);color:var(--accent)}
+
+  .fhead{display:flex;justify-content:space-between;align-items:baseline;
+    padding:11px 18px;border-bottom:1px solid var(--divider)}
+  .fhead .t{font-family:var(--head);font-size:15px;text-transform:uppercase}
+  .fhead .m{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--n600)}
+  .feed{flex:1;min-height:0;overflow-y:auto}
+  .day{display:flex;justify-content:space-between;padding:6px 18px;background:var(--surface);
+    border-bottom:1px solid var(--divider);position:sticky;top:0;z-index:1}
+  .day .d{font-family:var(--head);font-size:12px;letter-spacing:.07em;text-transform:uppercase}
+  .day .n{font-size:11.5px;color:var(--n600)}
+
+  .row{display:grid;grid-template-columns:52px 138px 1fr 26px;gap:14px;
+    padding:12px 18px;border-bottom:1px solid var(--divider);align-items:start}
+  .row:hover{background:var(--card)}
+  .row .time{font-size:12.5px;color:var(--n600);font-variant-numeric:tabular-nums}
+  .row .who{font-family:var(--head);font-size:14px;line-height:1.25;text-transform:uppercase}
+  .row .who .code{display:block;font-family:var(--body);font-size:11px;
+    letter-spacing:.06em;color:var(--accent)}
+  .row .txt{font-size:13.5px}
+  .row .txt .flag{color:var(--alert);font-weight:600}
+  .row .src{margin-top:5px;font-size:12px;display:block}
+  .row .src a{color:var(--accent);text-decoration:none}
+  .row .src a:hover{text-decoration:underline}
+  .star{background:none;border:none;cursor:pointer;font-size:15px;color:var(--n300);line-height:1}
+  .star[aria-pressed="true"]{color:var(--accent)}
+  .empty{padding:26px 18px;color:var(--n600)}
+
+  .promo .inner{padding:16px}
+  .promo .lead{font-size:14.5px;line-height:1.45;margin-bottom:14px}
+  .tg{display:block;background:var(--accent);color:#fff;text-decoration:none;
+    padding:14px;text-align:center;margin-bottom:14px}
+  .tg:hover{background:var(--accent-700)}
+  .tg svg{width:38px;height:38px;fill:currentColor}
+  .tg .n{font-family:var(--head);font-size:16px;margin-top:6px}
+  .tg .g{font-size:12px;opacity:.9}
+  .bul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:13px;color:var(--n700)}
+  .bul b{color:var(--text)}
+  .bul .n{color:var(--accent);font-family:var(--head);margin-right:6px}
+  .note{margin-top:14px;font-size:12px;color:var(--n600);line-height:1.5}
+
+  .chart{display:flex;align-items:flex-end;gap:4px;height:64px;margin-top:8px}
+  .chart div{flex:1;background:var(--accent);opacity:.75;min-height:2px}
+  .chart div:hover{opacity:1}
+  .chartx{display:flex;justify-content:space-between;font-size:10.5px;color:var(--n500);margin-top:4px}
+
+  @media (max-width:1000px){
+    body{overflow:auto;height:auto;display:block}
+    .main{grid-template-columns:1fr}
+    .side,.promo{border:none;border-bottom:1px solid var(--divider)}
+    .row{grid-template-columns:48px 1fr 26px}
+    .row .who,.row .txt{grid-column:2}
+    .top{grid-template-columns:1fr;gap:10px}
+    .find{max-width:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <span class="mark"><i></i></span>
+    <span>
+      <span class="t">Tennis Injury Terminal</span>
+      <span class="s" id="tagline"></span>
+    </span>
+  </div>
+  <div class="find">
+    <input id="q" type="search" placeholder="">
+    <button id="reset"></button>
+  </div>
+  <div class="right">
+    <span class="live"><i></i><span id="liveLbl"></span></span>
+    <span class="lang">
+      <button data-lang="en" aria-pressed="true">EN</button><button data-lang="ru" aria-pressed="false">RU</button>
+    </span>
+  </div>
+</header>
+
+<div class="wire">
+  <span class="lbl" id="wireLbl"></span>
+  <div style="overflow:hidden;flex:1"><div class="track" id="track"></div></div>
+</div>
+
+<div class="main">
+  <aside class="side">
+    <div class="block"><h3 id="sumTitle"></h3><div id="stats"></div></div>
+    <div class="block"><h3 id="filterTitle"></h3><div id="filters"></div></div>
+    <div class="block"><h3 id="idxTitle"></h3><div class="idx" id="index"></div></div>
+    <div class="block"><h3 id="chartTitle"></h3>
+      <div class="chart" id="chart"></div><div class="chartx" id="chartx"></div></div>
+  </aside>
+
+  <section class="feedcol">
+    <div class="fhead"><span class="t" id="feedTitle"></span><span class="m" id="resultLine"></span></div>
+    <div class="feed" id="feed"></div>
+  </section>
+
+  <aside class="promo">
+    <div class="inner">
+      <div class="lead" id="promoLead"></div>
+      <a class="tg" href="https://t.me/tennismedical" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.8.8l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.1 12.6l-4.8-1.5c-1-.3-1-1 .2-1.5l18.9-7.3c.9-.3 1.6.2 1.5 2z"/></svg>
+        <div class="n">@tennismedical</div>
+        <div class="g" id="tgGo"></div>
+      </a>
+      <ul class="bul" id="bullets"></ul>
+      <div class="note" id="note"></div>
+    </div>
+  </aside>
+</div>
+
+<script>
+let LANG = "en";
+
+const UI = {
+  en:{
+    tagline:"US Open 2026 · injuries, withdrawals, medical timeouts",
+    search:"Search player or text", reset:"Reset", live:"Live",
+    wire:"Wire", summary:"Summary", filter:"Filter", index:"Players",
+    chart:"Activity, last 14 days", records:"records",
+    all:"All records", injury:"Injuries", withdrawal:"Withdrawals",
+    returning:"Returning", condition:"Conditions", starred:"Watchlist",
+    sTotal:"Records", sPlayers:"Players", sWd:"Withdrawals", sInj:"Injuries",
+    sorted:"newest first", empty:"Nothing matches this filter.",
+    promoLead:"Medical timeouts, the moment they happen.",
+    tgGo:"Open the channel →",
+    b1:"<b>Live alerts</b> — the moment a player calls the trainer",
+    b2:"<b>Who took it</b> — name, score, who is serving",
+    b3:"<b>What happened next</b> — held or lost the service game",
+    b4:"<b>Odds</b> — before the break and when the line reopens",
+    note:"Free. ATP, WTA, Challengers, ITF and doubles.",
+    months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    ago:d => d === 0 ? "today" : d === 1 ? "1 day ago" : d + " days ago",
+  },
+  ru:{
+    tagline:"US Open 2026 · травмы, снятия, медицинские перерывы",
+    search:"Поиск по игроку или тексту", reset:"Сброс", live:"Онлайн",
+    wire:"Лента", summary:"Сводка", filter:"Фильтр", index:"Игроки",
+    chart:"Активность за 14 дней", records:"записей",
+    all:"Все записи", injury:"Травмы", withdrawal:"Снятия",
+    returning:"Возвращения", condition:"Состояние", starred:"Избранное",
+    sTotal:"Записей", sPlayers:"Игроков", sWd:"Снятий", sInj:"Травм",
+    sorted:"сначала новые", empty:"По этому фильтру ничего нет.",
+    promoLead:"Медицинские тайм-ауты в момент, когда они происходят.",
+    tgGo:"Перейти в канал →",
+    b1:"<b>Мгновенные алерты</b> — как только игрок зовёт врача",
+    b2:"<b>Кто взял</b> — имя, счёт, чья подача",
+    b3:"<b>Что было дальше</b> — удержал или проиграл свою подачу",
+    b4:"<b>Коэффициенты</b> — до перерыва и когда линия открылась",
+    note:"Бесплатно. ATP, WTA, челленджеры, ITF и пары.",
+    months:["янв","фев","мар","апр","май","июн","июл","авг","сен","окт","ноя","дек"],
+    ago:d => d === 0 ? "сегодня" : d === 1 ? "вчера" : d + " дн. назад",
+  },
+};
+const t = k => UI[LANG][k];
+
+const NEWS = [
+  {ts:"2026-08-24 09:30", who:"Kopriva", whoRu:"Коприва", code:"WST", kind:"withdrawal",
+   en:"is out of <b>Winston-Salem</b>. Reason not disclosed.",
+   ru:"выбыл из <b>Уинстон-Сейлема</b>. Причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-23 12:20", who:"Fucsovics", whoRu:"Фучович", code:"WST", kind:"injury",
+   en:"withdrew from <b>Winston-Salem</b> before round one with a <span class='flag'>shoulder problem</span>, ten days after retiring in Cincinnati with his back.",
+   ru:"снялся с <b>Уинстон-Сейлема</b> перед первым кругом из-за <span class='flag'>плеча</span> — через десять дней после снятия в Цинциннати из-за спины.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-23 11:50", who:"Prizmic", whoRu:"Призмич", code:"WST", kind:"injury",
+   en:"withdrew from <b>Winston-Salem</b> before his first-round match with a <span class='flag'>hip problem</span>.",
+   ru:"снялся с <b>Уинстон-Сейлема</b> перед матчем первого круга из-за <span class='flag'>бедра</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-23 11:30", who:"Royer", whoRu:"Руайе", code:"WST", kind:"withdrawal",
+   en:"withdrew from <b>Winston-Salem</b> before round one, listed as rest.",
+   ru:"снялся с <b>Уинстон-Сейлема</b> перед первым кругом, причина указана как отдых.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-14 10:15", who:"Griekspoor", whoRu:"Грикспор", code:"CIN", kind:"injury",
+   en:"withdrew from <b>Cincinnati</b> before his first-round match with an <span class='flag'>abdominal problem</span>.",
+   ru:"снялся с <b>Цинциннати</b> перед первым кругом из-за <span class='flag'>живота</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-13 16:45", who:"Fucsovics", whoRu:"Фучович", code:"CIN", kind:"injury",
+   en:"retired with a <span class='flag'>back problem</span> down 1-3 to Atmane in round one of <b>Cincinnati</b>.",
+   ru:"снялся с <span class='flag'>проблемой спины</span> при 1-3 против Атмана в первом круге <b>Цинциннати</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-12 09:40", who:"Moutet", whoRu:"Муте", code:"CIN", kind:"injury",
+   en:"withdrew from <b>Cincinnati</b> before round one with a <span class='flag'>wrist problem</span>.",
+   ru:"снялся с <b>Цинциннати</b> перед первым кругом из-за <span class='flag'>запястья</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-22 10:05", who:"Bonzi / Bellucci", whoRu:"Бонзи / Беллуччи", code:"WST", kind:"returning",
+   en:"both entered <b>Winston-Salem</b> as alternates while climbing back from injuries picked up at Wimbledon.",
+   ru:"оба попали в основную сетку <b>Уинстон-Сейлема</b> как запасные, возвращаясь после травм, полученных на Уимблдоне.",
+   src:"https://lastwordonsports.com/tennis/2026/08/22/withdraw-atp-winston-salem/", srcName:"Last Word"},
+  {ts:"2026-08-22 10:00", who:"Shang", whoRu:"Шан", code:"WST", kind:"returning",
+   en:"withdrew from <b>Winston-Salem</b> to stay fit for best-of-five in New York. Comeback began in Washington; already beat Rublev.",
+   ru:"снялся с <b>Уинстон-Сейлема</b>, чтобы сохранить форму под пятисетовый формат. Возвращение начал в Вашингтоне, уже обыграл Рублёва.",
+   src:"https://lastwordonsports.com/tennis/2026/08/22/withdraw-atp-winston-salem/", srcName:"Last Word"},
+  {ts:"2026-08-21 14:35", who:"Rune", whoRu:"Руне", code:"USO", kind:"withdrawal",
+   en:"will miss the <b>US Open</b>. No official match since rupturing his left Achilles in October; chose not to return at a Slam.",
+   ru:"пропустит <b>US Open</b>. Не играл с октября, когда порвал левое ахиллово сухожилие; решил не возвращаться на шлеме.",
+   src:"https://whbl.com/2026/08/21/tennis-sinner-to-miss-us-open-due-to-knee-injury/", srcName:"Reuters"},
+  {ts:"2026-08-21 14:20", who:"Draper", whoRu:"Драпер", code:"USO", kind:"withdrawal",
+   en:"is out of the <b>US Open</b>. Reports point to the long-standing left arm problem; also dealt with a knee issue this year.",
+   ru:"вне <b>US Open</b>. По сообщениям — давняя проблема с левой рукой; в этом году были и трудности с коленом.",
+   src:"https://whbl.com/2026/08/21/tennis-sinner-to-miss-us-open-due-to-knee-injury/", srcName:"Reuters"},
+  {ts:"2026-08-21 11:00", who:"Sinner", whoRu:"Синнер", code:"USO", kind:"withdrawal",
+   en:"withdrew from the <b>US Open</b> with a right knee issue. No match since the Wimbledon final on 12 July. First Slam missed since 2019.",
+   ru:"снялся с <b>US Open</b> из-за правого колена. Не играл с финала Уимблдона 12 июля. Первый пропущенный шлем с 2019 года.",
+   src:"https://www.espn.com/tennis/story/_/id/49681192/jannik-sinner-withdraws-us-open-due-knee-injury", srcName:"ESPN"},
+  {ts:"2026-08-20 16:00", who:"Alcaraz", whoRu:"Алькарас", code:"USO", kind:"returning",
+   en:"confirmed his <b>US Open</b> return after four months out with a right wrist injury. Missed Roland Garros, Wimbledon, Toronto, Cincinnati.",
+   ru:"подтвердил возвращение на <b>US Open</b> после четырёх месяцев вне тура из-за правого запястья. Пропустил Ролан Гаррос, Уимблдон, Торонто, Цинциннати.",
+   src:"https://www.usopen.org/en_US/news/articles/2026-08-20/carlos_alcaraz_announces_return_from_injury_at_2026_us_open.html", srcName:"usopen.org"},
+  {ts:"2026-08-20 12:10", who:"Davidovich Fokina", whoRu:"Давидович Фокина", code:"USO", kind:"withdrawal",
+   en:"withdrew from the <b>US Open</b> with a <span class='flag'>back injury</span> that also cost him Montreal and Cincinnati. Replaced by Alexei Popyrin.",
+   ru:"снялся с <b>US Open</b> из-за <span class='flag'>травмы спины</span>, из-за неё же пропустил Монреаль и Цинциннати. Замена — Алексей Попырин.",
+   src:"https://en.wikipedia.org/wiki/2026_US_Open_%E2%80%93_Men%27s_singles", srcName:"puntodebreak"},
+  {ts:"2026-08-19 12:00", who:"Quinn", whoRu:"Куинн", code:"USO", kind:"withdrawal",
+   en:"withdrew from the <b>US Open</b> entry list and was replaced by Martin Damm.",
+   ru:"снялся с заявки на <b>US Open</b>, замена — Мартин Дамм.",
+   src:"https://www.tennis365.com/tennis-news/us-open-withdrawal-list-2026-14-stars-out", srcName:"Tennis365"},
+  {ts:"2026-08-19 11:40", who:"Nava", whoRu:"Нава", code:"USO", kind:"withdrawal",
+   en:"withdrew from the <b>US Open</b> entry list, one of the first two ATP withdrawals. Replaced by Benjamin Bonzi.",
+   ru:"снялся с заявки на <b>US Open</b>, один из первых двух снявшихся у мужчин. Замена — Бенжамен Бонзи.",
+   src:"https://www.tennis365.com/tennis-news/us-open-withdrawal-list-2026-14-stars-out", srcName:"Tennis365"},
+  {ts:"2026-08-18 16:30", who:"Diallo", whoRu:"Диалло", code:"USO", kind:"withdrawal",
+   en:"withdrew from the <b>US Open</b> after retiring with a <span class='flag'>leg problem</span> against Darderi in Montreal. Replaced by Wu Yibing.",
+   ru:"снялся с <b>US Open</b> после того, как в Монреале снялся по ходу матча против Дардери из-за <span class='flag'>ноги</span>. Замена — У Ибин.",
+   src:"https://www.tennis365.com/tennis-news/us-open-withdrawal-list-2026-14-stars-out", srcName:"Tennis365"},
+  {ts:"2026-08-16 15:10", who:"Ruud", whoRu:"Рууд", code:"CIN", kind:"injury",
+   en:"retired with a <span class='flag'>back problem</span> down 7-5 1-2 to O'Connell in round two of <b>Cincinnati</b>.",
+   ru:"снялся с <span class='flag'>проблемой спины</span> при 5-7 2-1 против О'Коннелла во втором круге <b>Цинциннати</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-18 14:00", who:"Fonseca", whoRu:"Фонсека", code:"CIN", kind:"withdrawal",
+   en:"withdrew before his third-round match in <b>Cincinnati</b> against O'Connell with an <span class='flag'>abdominal injury</span>. Off the US Open entry list.",
+   ru:"снялся перед матчем третьего круга в <b>Цинциннати</b> против О'Коннелла из-за <span class='flag'>травмы живота</span>. Из заявки на US Open выбыл.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-16 10:30", who:"Djokovic", whoRu:"Джокович", code:"CIN", kind:"condition",
+   en:"said he has lived for years with a health issue that is hard to manage in heat and humidity, and that it caused the <span class='flag'>medical timeout</span>.",
+   ru:"сказал, что годами живёт с проблемой, тяжело переносимой при жаре и влажности, и что именно она вызвала <span class='flag'>медицинский перерыв</span>.",
+   src:"https://www.nbcnews.com/sports/tennis/novak-djokovic-reveals-health-issue-ouster-cincinnati-open-rcna592768", srcName:"NBC News"},
+  {ts:"2026-08-15 21:40", who:"Djokovic", whoRu:"Джокович", code:"CIN", kind:"injury",
+   en:"took a <span class='flag'>medical timeout</span> in round two in <b>Cincinnati</b> after an 18-minute service game. Appeared to vomit on court. Lost 2-6 6-4 6-4.",
+   ru:"взял <span class='flag'>медицинский перерыв</span> во втором круге в <b>Цинциннати</b> после 18-минутного гейма на подаче. Его рвало на корте. Проиграл 2-6 6-4 6-4.",
+   src:"https://www.skysports.com/tennis/news/12110/13573406/novak-djokovic-out-of-cincinnati-open-in-second-round-after-struggling-with-heat-and-humidity-against-thiago-agustin-tirante", srcName:"Sky Sports"},
+  {ts:"2026-08-06 19:20", who:"Tiafoe", whoRu:"Тиафо", code:"MTL", kind:"injury",
+   en:"retired with a <span class='flag'>hand problem</span> down 6-2 2-0 to Rinderknech in round three of <b>Montreal</b>.",
+   ru:"снялся с <span class='flag'>проблемой кисти</span> при 2-6 0-2 против Риндеркнеша в третьем круге <b>Монреаля</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-05 11:40", who:"Munar", whoRu:"Мунар", code:"MTL", kind:"injury",
+   en:"withdrew from his second-round match in <b>Montreal</b> against Blockx with a <span class='flag'>back issue</span>.",
+   ru:"снялся с матча второго круга в <b>Монреале</b> против Блокса из-за <span class='flag'>спины</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-04 20:15", who:"Shapovalov", whoRu:"Шаповалов", code:"MTL", kind:"injury",
+   en:"retired with a <span class='flag'>leg problem</span> down 6-4 4-6 0-3 to Svajda in round one of <b>Montreal</b>.",
+   ru:"снялся с <span class='flag'>проблемой ноги</span> при 4-6 6-4 3-0 против Свайды в первом круге <b>Монреаля</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-05 13:00", who:"Auger-Aliassime", whoRu:"Оже-Альяссим", code:"MTL", kind:"injury",
+   en:"withdrew from <b>Montreal</b> before round two with a <span class='flag'>back issue</span>.",
+   ru:"снялся в <b>Монреале</b> перед вторым кругом из-за <span class='flag'>спины</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-09 12:00", who:"Korda", whoRu:"Корда", code:"USO", kind:"withdrawal",
+   en:"is recovering from <span class='flag'>back surgery</span> and has not competed since Miami in March. Out of the US Open.",
+   ru:"восстанавливается после <span class='flag'>операции на спине</span>, не играл с марта. В US Open не выступит.",
+   src:"https://sports.yahoo.com/articles/list-players-missing-cincinnati-open-191532395.html", srcName:"Yahoo"},
+  {ts:"2026-01-20 09:00", who:"Musetti", whoRu:"Муссетти", code:"AO", kind:"injury",
+   en:"went down injured at the <b>Australian Open</b> and missed a significant stretch afterwards.",
+   ru:"получил травму на <b>Australian Open</b> и пропустил заметную часть сезона.",
+   src:"https://tennishead.net/jannik-sinner-told-his-us-open-withdrawal-underlines-a-bigger-issue-in-tennis-right-now/", srcName:"Tennishead"},
+];
+
+const KINDS = ["all","injury","withdrawal","returning","condition","starred"];
+let filter = "all", query = "";
+const starred = new Set();
+
+const nameOf = n => (LANG === "ru" && n.whoRu) ? n.whoRu : n.who;
+const idOf = n => n.ts + n.who;
+const dayKey = ts => ts.split(" ")[0];
+
+function daysAgo(ts){
+  const d = new Date(ts.replace(" ", "T"));
+  return Math.max(0, Math.round((Date.now() - d) / 86400000));
+}
+function dayLabel(ts){
+  const [y,m,d] = dayKey(ts).split("-");
+  return `${Number(d)} ${UI[LANG].months[Number(m)-1]} ${y}`;
+}
+
+function match(n){
+  const q = query.trim().toLowerCase();
+  if (filter === "starred" && !starred.has(idOf(n))) return false;
+  if (filter !== "all" && filter !== "starred" && n.kind !== filter) return false;
+  if (!q) return true;
+  return n.who.toLowerCase().includes(q) ||
+         (n.whoRu || "").toLowerCase().includes(q) ||
+         n[LANG].toLowerCase().includes(q);
+}
+
+function renderStats(){
+  const rows = [
+    ["sTotal", NEWS.length],
+    ["sPlayers", new Set(NEWS.map(n => n.who)).size],
+    ["sInj", NEWS.filter(n => n.kind === "injury").length],
+    ["sWd", NEWS.filter(n => n.kind === "withdrawal").length],
+  ];
+  document.getElementById("stats").innerHTML = rows.map(([k,v]) =>
+    `<div class="stat"><span class="l">${t(k)}</span><span class="v mono">${v}</span></div>`).join("");
+}
+
+function renderFilters(){
+  document.getElementById("filters").innerHTML = KINDS.map(k => {
+    const count = k === "all" ? NEWS.length
+      : k === "starred" ? starred.size
+      : NEWS.filter(n => n.kind === k).length;
+    return `<button class="fl" data-kind="${k}" aria-pressed="${k === filter}">
+        <span>${t(k)}</span><span class="c">${count}</span></button>`;
+  }).join("");
+}
+
+function renderIndex(){
+  const by = {};
+  for (const n of NEWS) by[nameOf(n)] = (by[nameOf(n)] || 0) + 1;
+  document.getElementById("index").innerHTML = Object.entries(by)
+    .sort((a,b) => b[1] - a[1])
+    .map(([name,c]) => `<button data-name="${name}">${name} ${c}</button>`).join("");
+}
+
+/* Столбики по дням: сразу видно, когда шла волна снятий. */
+function renderChart(){
+  const days = [];
+  for (let i = 13; i >= 0; i--){
+    const key = new Date(Date.now() - i * 86400000).toISOString().slice(0,10);
+    days.push([key, NEWS.filter(n => dayKey(n.ts) === key).length]);
+  }
+  const max = Math.max(1, ...days.map(d => d[1]));
+  document.getElementById("chart").innerHTML = days.map(([k,v]) =>
+    `<div style="height:${Math.round(v / max * 100)}%" title="${k}: ${v}"></div>`).join("");
+  const f = days[0][0].split("-"), l = days[13][0].split("-");
+  document.getElementById("chartx").innerHTML =
+    `<span>${Number(f[2])} ${UI[LANG].months[Number(f[1])-1]}</span>` +
+    `<span>${Number(l[2])} ${UI[LANG].months[Number(l[1])-1]}</span>`;
+}
+
+function renderWire(){
+  const items = NEWS.slice(0, 8).map(n =>
+    `<span><b>${nameOf(n)}</b> · ${n.code} · ${UI[LANG].ago(daysAgo(n.ts))}</span>`).join("");
+  document.getElementById("track").innerHTML = items + items;
+}
+
+function renderFeed(){
+  const rows = NEWS.filter(match).sort((a,b) => b.ts.localeCompare(a.ts));
+  document.getElementById("resultLine").textContent =
+    `${rows.length} ${t("records")} · ${t("sorted")}`;
+  document.getElementById("feedTitle").textContent = t(filter);
+
+  if (!rows.length){
+    document.getElementById("feed").innerHTML = `<div class="empty">${t("empty")}</div>`;
+    return;
+  }
+  let html = "", last = "";
+  for (const n of rows){
+    if (dayKey(n.ts) !== last){
+      last = dayKey(n.ts);
+      const cnt = rows.filter(r => dayKey(r.ts) === last).length;
+      html += `<div class="day"><span class="d">${dayLabel(n.ts)}</span>` +
+              `<span class="n">${cnt} ${t("records")} · ${UI[LANG].ago(daysAgo(n.ts))}</span></div>`;
+    }
+    const id = idOf(n);
+    html += `<div class="row">
+        <span class="time">${n.ts.split(" ")[1]}</span>
+        <span class="who">${nameOf(n)}<span class="code">${n.code}</span></span>
+        <span class="txt">${n[LANG]}
+          <span class="src"><a href="${n.src}" target="_blank" rel="noopener">${n.srcName} ↗</a></span>
+        </span>
+        <button class="star" data-star="${id}" aria-pressed="${starred.has(id)}">${starred.has(id) ? "★" : "☆"}</button>
+      </div>`;
+  }
+  document.getElementById("feed").innerHTML = html;
+}
+
+function renderStatic(){
+  document.documentElement.lang = LANG;
+  const set = (id, val) => document.getElementById(id).textContent = val;
+  set("tagline", t("tagline"));
+  document.getElementById("q").placeholder = t("search");
+  set("reset", t("reset")); set("liveLbl", t("live")); set("wireLbl", t("wire"));
+  set("sumTitle", t("summary")); set("filterTitle", t("filter"));
+  set("idxTitle", t("index")); set("chartTitle", t("chart"));
+  set("promoLead", t("promoLead")); set("tgGo", t("tgGo")); set("note", t("note"));
+  document.getElementById("bullets").innerHTML = ["b1","b2","b3","b4"]
+    .map((k,i) => `<li><span class="n">0${i+1}</span>${t(k)}</li>`).join("");
+  document.querySelectorAll(".lang button").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.lang === LANG)));
+}
+
+function render(){
+  renderStatic(); renderStats(); renderFilters();
+  renderIndex(); renderChart(); renderWire(); renderFeed();
+}
+
+document.addEventListener("click", e => {
+  const f = e.target.closest("[data-kind]");
+  if (f){ filter = f.dataset.kind; render(); return; }
+
+  const st = e.target.closest("[data-star]");
+  if (st){
+    const id = st.dataset.star;
+    starred.has(id) ? starred.delete(id) : starred.add(id);
+    render(); return;
+  }
+
+  const nm = e.target.closest("[data-name]");
+  if (nm){
+    query = nm.dataset.name; filter = "all";
+    document.getElementById("q").value = query; render(); return;
+  }
+
+  const lg = e.target.closest(".lang button");
+  if (lg){ LANG = lg.dataset.lang; render(); return; }
+
+  if (e.target.id === "reset"){
+    query = ""; filter = "all";
+    document.getElementById("q").value = ""; render();
+  }
+});
+
+/* Перерисовываем только ленту: полная перерисовка сбрасывала бы
+   фокус в поле поиска на каждом набранном символе. */
+document.getElementById("q").addEventListener("input", e => {
+  query = e.target.value; renderFeed();
+});
+
+render();
+</script>
+</body>
+</html>
