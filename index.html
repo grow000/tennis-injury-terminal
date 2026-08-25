@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -122,6 +122,9 @@
   @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   .track span{font-size:12.5px;color:rgba(255,255,255,.62)}
   .track b{color:#fff;font-weight:600}
+  .track button{border:none;background:none;padding:0;cursor:pointer;color:#fff;font:600 12.5px var(--body);
+    border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+  .track button:hover{border-bottom-color:var(--accent-100);color:var(--accent-100)}
   .track em{font-style:normal;color:var(--accent-100);margin:0 6px}
 
   /* ─────────── Общая раскладка ─────────── */
@@ -155,6 +158,10 @@
   .btn:hover{transform:translateY(-2px);box-shadow:var(--sh-2);border-color:transparent}
   .btn.p{background:var(--ink);color:#fff;border-color:var(--ink)}
   .btn.p:hover{background:var(--accent);border-color:var(--accent)}
+  .btn.tg-btn{background:var(--accent);border-color:var(--accent);color:#fff;
+    box-shadow:0 8px 20px -12px var(--accent)}
+  .btn.tg-btn:hover{background:var(--accent-600);border-color:var(--accent-600)}
+  .tgCaption{align-self:center;font-size:13.5px;color:var(--ink-2);max-width:22ch;line-height:1.3}
   .btn svg{width:15px;height:15px;flex:none;fill:currentColor}
   #ctaTg span{white-space:nowrap}
 
@@ -323,6 +330,96 @@
   .live.stale i{background:#e39100}
   .live.stale i::after{animation:none}
   #updatedLine{font-variant-numeric:tabular-nums}
+
+  /* ─────────── Матчи ─────────── */
+  .dayRow .prow button{min-width:96px;text-align:center;display:block}
+  .dayRow .prow button b{display:block;margin:0;font-size:11px;color:var(--muted);font-weight:500}
+  .dayRow .prow button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .dayRow .prow button[aria-pressed="true"] b{color:rgba(255,255,255,.6)}
+
+  .evt{margin:22px 0 10px;display:flex;align-items:center;gap:10px}
+  .evt:first-child{margin-top:0}
+  .evt .name{font-family:var(--head);font-size:15px;letter-spacing:.05em;text-transform:uppercase}
+  .evt .ln{flex:1;height:1px;background:var(--line)}
+  .evt .n{font-size:11.5px;color:var(--muted)}
+
+  .mtable{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    overflow:hidden;box-shadow:var(--sh-1)}
+  .mrow{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;align-items:center;
+    padding:9px 14px;border-bottom:1px solid var(--line-soft);transition:background .2s}
+  .mrow:last-child{border-bottom:none}
+  .mrow:hover{background:var(--surface-2)}
+  .mrow .tm{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .mrow .pair{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .mrow .side{display:flex;align-items:center;gap:8px;min-width:0}
+  .mrow .side.win .nm{font-weight:600}
+  .mrow .nm{border:none;background:none;padding:0;cursor:pointer;font:14px var(--body);color:var(--ink);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+  .mrow .nm:hover{color:var(--accent-700);border-bottom-color:var(--accent)}
+  .mrow .sd{flex:none;font-size:10.5px;color:var(--muted)}
+  .mrow .flag{flex:none;width:6px;height:6px;border-radius:50%;background:var(--line)}
+  .mrow .sc{display:flex;gap:5px;font-variant-numeric:tabular-nums;font-size:13px;color:var(--ink-2)}
+  .mrow .sc b{color:var(--ink)}
+  .mrow .sc sup{font-size:9px;vertical-align:super;color:var(--muted);margin-left:1px}
+  .mrow .od{display:flex;gap:6px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .mrow .od span{border:1px solid var(--line-soft);border-radius:5px;padding:2px 7px;background:var(--surface-2)}
+
+  /* ─────────── Рейтинг ─────────── */
+  .rtable{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    overflow:hidden;box-shadow:var(--sh-1)}
+  .rhead,.rrow{display:grid;grid-template-columns:56px 40px minmax(0,1fr) 96px 108px;
+    gap:12px;align-items:center;padding:9px 16px}
+  .rhead{background:var(--surface-2);border-bottom:1px solid var(--line);
+    font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+    position:sticky;top:var(--stick,150px);z-index:5}
+  .rrow{border-bottom:1px solid var(--line-soft);transition:background .2s}
+  .rrow:last-child{border-bottom:none}
+  .rrow:hover{background:var(--surface-2)}
+  .rrow .pos{font-family:var(--head);font-size:16px;font-variant-numeric:tabular-nums}
+  .rrow .mv{font-size:11.5px;font-variant-numeric:tabular-nums}
+  .rrow .mv.up{color:#0a6b0a}
+  .rrow .mv.dn{color:var(--crit)}
+  .rrow .mv.same{color:var(--n300,#cfcfcb)}
+  .rrow .who{display:flex;align-items:baseline;gap:8px;min-width:0}
+  .rrow .who button{border:none;background:none;padding:0;cursor:pointer;font:500 14.5px var(--body);
+    color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+  .rrow .who button:hover{color:var(--accent-700);border-bottom-color:var(--accent)}
+  .rrow .ctry{font-size:11.5px;color:var(--muted);white-space:nowrap}
+  .rrow .pts{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  .rrow .def{text-align:right;font-variant-numeric:tabular-nums;font-size:13px;color:var(--ink-2)}
+  .rrow .def.zero{color:var(--muted)}
+  .rmore{display:block;width:100%;padding:13px;border:none;background:var(--surface-2);cursor:pointer;
+    font:600 13px var(--body);color:var(--accent-700);transition:background .2s}
+  .rmore:hover{background:var(--accent-050)}
+  .rnote{margin-bottom:14px;font-size:12.5px;color:var(--muted)}
+
+  /* ─────────── Фото и профиль в карточке ─────────── */
+  .sheet .prof{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;align-items:start;
+    margin-bottom:16px}
+  .sheet .ph{width:96px;height:96px;border-radius:var(--r);overflow:hidden;background:var(--surface-2);
+    border:1px solid var(--line);display:grid;place-items:center}
+  .sheet .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .sheet .ph .mono{font-family:var(--head);font-size:30px;color:var(--muted)}
+  .sheet .facts{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:8px;font-size:13px;color:var(--ink-2)}
+  .sheet .facts b{color:var(--ink);font-variant-numeric:tabular-nums}
+  .sheet .credit{margin-top:6px;font-size:11px;color:var(--muted)}
+  .sheet .credit a{color:var(--muted)}
+  .sheet .nextM{margin:0 0 18px;padding:11px 13px;border-radius:var(--r-sm);background:var(--surface-2);
+    border:1px solid var(--line-soft);font-size:13px}
+  .sheet .nextM b{font-weight:600}
+  .sheet .nextM .t{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+    display:block;margin-bottom:4px}
+
+  @media (max-width:760px){
+    .rhead,.rrow{grid-template-columns:44px 34px minmax(0,1fr) 70px;gap:8px;padding:9px 12px}
+    .rhead .def,.rrow .def{display:none}
+    .mrow{grid-template-columns:46px minmax(0,1fr);row-gap:6px}
+    .mrow .right{grid-column:2}
+    .sheet .prof{grid-template-columns:72px minmax(0,1fr);gap:14px}
+    .sheet .ph{width:72px;height:72px}
+  }
 
   .chips{display:flex;flex-wrap:wrap;gap:8px}
   .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:var(--r-pill);
@@ -526,7 +623,7 @@
   <div class="tools">
     <span class="live" id="livePill"><i></i><span id="liveLbl"></span></span>
     <span class="seg">
-      <button data-lang="en" aria-pressed="true">EN</button><button data-lang="ru" aria-pressed="false">RU</button>
+      <button data-lang="en" aria-pressed="false">EN</button><button data-lang="ru" aria-pressed="true">RU</button>
     </span>
   </div>
 </header>
@@ -545,10 +642,11 @@
         <p class="lead up d2" id="heroLead"></p>
         <div class="heroCta up d3">
           <a class="btn p" href="#feed" id="ctaFeed"></a>
-          <a class="btn" href="https://t.me/tennismedical" target="_blank" rel="noopener" id="ctaTg">
+          <a class="btn tg-btn" href="https://t.me/tennismedical" target="_blank" rel="noopener" id="ctaTg">
             <svg viewBox="0 0 24 24"><path d="M21.9 4.3 18.7 19c-.2 1-.9 1.3-1.8.8l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.1 12.6l-4.8-1.5c-1-.3-1-1 .2-1.5l18.9-7.3c.9-.3 1.6.2 1.5 2z"/></svg>
             <span></span>
           </a>
+          <span class="tgCaption" id="tgCaption"></span>
         </div>
       </div>
 
@@ -560,7 +658,7 @@
     <div class="wrap">
       <div class="tabbar" id="tabs"></div>
       <div class="chips" id="filters"></div>
-      <div class="players">
+      <div class="players" id="idxRow">
         <span class="cap" id="idxTitle"></span>
         <div class="prow" id="index"></div>
       </div>
@@ -616,8 +714,11 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="data.js"></script>
+<script src="rankings.js"></script>
+<script src="matches.js"></script>
+<script src="players.js"></script>
 <script>
-let LANG = "en";
+let LANG = "ru";
 
 
 /* Статусные цвета: всегда идут в паре с текстовой меткой, цвет ничего не несёт в одиночку. */
@@ -632,12 +733,32 @@ const KIND_COLOR = {
   women:      {k:"#e87ba4", kb:"rgba(232,123,164,.14)",kt:"#a63f68"},
 };
 
-const TABS = ["atp","wta","wd","fade"];
+const TABS = ["atp","wta","wd","fade","matches","ranking"];
+const KINDS_MATCH = ["all","men","women"];
+const KINDS_RANK = ["men","women"];
+
+/* Данные вкладок «Матчи» и «Рейтинг» лежат отдельными файлами: если сборщик
+   не отработал, страница всё равно должна открыться. */
+const RANK = (typeof RANKING !== "undefined") ? RANKING : {atp:[], wta:[]};
+const GAMES = (typeof MATCHES !== "undefined") ? MATCHES : [];
+const PHOTO = (typeof PHOTOS !== "undefined") ? PHOTOS : {};
+RANK.atp.forEach(r => r.tour = "atp");      // в файле рейтинга тура нет, он задан ключом
+RANK.wta.forEach(r => r.tour = "wta");
+const RANK_ALL = [...RANK.atp, ...RANK.wta];
+
+const nkey = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .replace(/[^a-z]+/g, " ").trim().split(" ").filter(w => w.length > 1).sort().join(" ");
+const BY_SLUG = new Map(RANK_ALL.map(r => [r.slug, r]));
+const BY_NAME = new Map(RANK_ALL.map(r => [nkey(r.name), r]));
+const rowFor = id => BY_SLUG.get(id) || BY_NAME.get(nkey(id)) || null;
+const idOfPlayer = who => (rowFor(who) || {}).slug || who;
+
+let mday = 0;                     // выбранный день в расписании
 const KINDS_TOUR = ["all","injury","withdrawal","returning","condition","starred"];
 const KINDS_WD = ["all","men","women","starred"];
 const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-let TAB = "atp", filter = "all", query = "";
+let TAB = "atp", filter = "all", query = "", rankShown = 100;
 const starred = new Set();
 
 const $ = id => document.getElementById(id);
@@ -786,6 +907,7 @@ function fadeMatch(f){
 
 /* Вкладка задаёт набор записей: тур + топ-250, либо все снятия обоих туров. */
 function scope(){
+  if (TAB === "matches" || TAB === "ranking") return [];
   if (TAB === "fade"){
     const names = new Set(fadeList().map(f => f.who));
     return NEWS.filter(n => names.has(n.who) && SIG_W[n.sig]);
@@ -813,9 +935,16 @@ function match(n){
          n[LANG].toLowerCase().includes(q);
 }
 
-const kindsNow = () => (TAB === "wd" || TAB === "fade") ? KINDS_WD : KINDS_TOUR;
+const kindsNow = () => TAB === "ranking" ? KINDS_RANK
+  : TAB === "matches" ? KINDS_MATCH
+  : (TAB === "wd" || TAB === "fade") ? KINDS_WD : KINDS_TOUR;
 
 function countOf(k){
+  if (TAB === "matches"){
+    const list = dayGames();
+    return k === "all" ? list.length : list.filter(m => m.tour === (k === "men" ? "atp" : "wta")).length;
+  }
+  if (TAB === "ranking") return (k === "men" ? RANK.atp : RANK.wta).length;
   const s = scope();
   if (k === "all") return s.length;
   if (k === "starred") return s.filter(n => starred.has(idOf(n))).length;
@@ -827,12 +956,16 @@ function countOf(k){
 /* ─────────── Вкладки ─────────── */
 function renderTabs(){
   const count = tab => {
+    if (tab === "matches") return GAMES.length;
+    if (tab === "ranking") return RANK_ALL.length;
     if (tab === "fade") return fadeList().length;
     const keep = TAB; TAB = tab; const c = scope().length; TAB = keep; return c;
   };
   $("tabs").innerHTML = TABS.map(tab => {
-    const key = {atp:"tabAtp", wta:"tabWta", wd:"tabWd", fade:"tabFade"}[tab];
-    const sub = {atp:"tabAtpSub", wta:"tabWtaSub", wd:"tabWdSub", fade:"tabFadeSub"}[tab];
+    const key = {atp:"tabAtp", wta:"tabWta", wd:"tabWd", fade:"tabFade",
+                 matches:"tabMatches", ranking:"tabRanking"}[tab];
+    const sub = {atp:"tabAtpSub", wta:"tabWtaSub", wd:"tabWdSub", fade:"tabFadeSub",
+                 matches:"tabMatchesSub", ranking:"tabRankingSub"}[tab];
     return `<button class="tab" data-tab="${tab}" aria-pressed="${tab === TAB}">
         <span class="n">${t(key)}</span>
         <span class="s">${t(sub)}</span>
@@ -860,7 +993,22 @@ function renderTiles(){
   const newest = s.length ? s.reduce((a,b) => a.ts > b.ts ? a : b) : null;
   const share = n => (s.length ? Math.round(n / s.length * 100) : 0) + "% " + t("ofTotal");
   const fl = TAB === "fade" ? fadeList() : [];
-  const tiles = TAB === "fade"
+  const day = TAB === "matches" ? dayGames() : [];
+  const rank = TAB === "ranking" ? (filter === "women" ? RANK.wta : RANK.atp) : [];
+  const tiles = TAB === "matches"
+    ? [{key:"matchesToday", val:day.length,
+        meta:DAYS[mday] ? labelOfKey(DAYS[mday]) : "\u2014"},
+       {key:"events", val:new Set(day.map(m => m.event)).size, meta:t("tabMatchesSub")},
+       {key:"men", val:day.filter(m => m.tour === "atp").length, meta:"ATP", kind:"men"},
+       {key:"women", val:day.filter(m => m.tour === "wta").length, meta:"WTA", kind:"women"}]
+    : TAB === "ranking"
+    ? [{key:"sPlayers", val:rank.length, meta:t("tabRankingSub")},
+       {key:"colPts", val:rank.length ? rank[0].points : 0, meta:rank.length ? rank[0].name : ""},
+       {key:"colDef", val:rank.filter(r => r.defend).length, meta:t("profDefend"),
+        kind:filter === "women" ? "women" : "men"},
+       {key:filter === "women" ? "women" : "men", val:rank.filter(r => r.move > 0).length,
+        meta:"\u2191 " + t("colMove"), kind:filter === "women" ? "women" : "men"}]
+    : TAB === "fade"
     ? [{key:"candidates", val:fl.length, meta:t("statusNote") + " \u00b7 US Open"},
        {key:"avgScore", val:fl.length ? Math.round(fl.reduce((a,b) => a + b.score, 0) / fl.length) : 0,
         meta:t("riskScore")},
@@ -894,7 +1042,9 @@ function renderTiles(){
         `<span class="w"><b>${v}</b>${t("sig" + k[0].toUpperCase() + k.slice(1))}</span>`).join("")}</div>
     </div>` :
   `<div class="chartCard">
-      <div class="hd"><span class="t">${t("chart")}</span><span class="s">${t("chartHint")}</span></div>
+      <div class="hd"><span class="t">${TAB === "matches" ? t("chartMatches") : t("chart")}</span>
+        <span class="s">${TAB === "matches"
+          ? t("chartMatchesHint") + " " + DAYS.length : t("chartHint")}</span></div>
       <div class="plot" id="plot"></div>
       <div class="xax" id="xax"></div>
       <div class="tip" id="tip"></div>
@@ -905,7 +1055,8 @@ function renderTiles(){
 
 /* Один ряд, одна величина — легенда не нужна, подпись графика говорит, что это. */
 function renderChart(){
-  if (TAB === "fade") return;
+  if (TAB === "fade" || TAB === "ranking") return;
+  if (TAB === "matches") return renderDayChart();
   const s = scope(), days = [];
   for (let i = 13; i >= 0; i--){
     const key = new Date(Date.now() - i * 86400000).toISOString().slice(0,10);
@@ -938,6 +1089,34 @@ function renderChart(){
   $("xax").innerHTML = `<span>${labelOfKey(days[0][0])}</span><span>${labelOfKey(days[13][0])}</span>`;
 }
 
+/* Столбики по дням недели: сразу видно, где расписание уже опубликовано. */
+function renderDayChart(){
+  const plot = $("plot"), tip = $("tip");
+  if (!plot) return;
+  const counts = DAYS.map(d => [d, GAMES.filter(m => m.date === d).length]);
+  const max = Math.max(1, ...counts.map(c => c[1]));
+  plot.innerHTML = counts.map(([d, v], i) =>
+    `<div class="col" data-v="${v}" data-k="${d}" style="cursor:pointer" data-day="${i}"></div>`
+      .replace("></div>", `><div class="fill"></div></div>`)).join("");
+  const grow = () => plot.querySelectorAll(".col").forEach((c, i) => {
+    const v = Number(c.dataset.v);
+    c.querySelector(".fill").style.transitionDelay = REDUCED ? "0ms" : (i * 45) + "ms";
+    c.querySelector(".fill").style.height = (v ? Math.max(6, Math.round(v / max * 100)) : 2) + "%";
+  });
+  REDUCED ? grow() : requestAnimationFrame(() => requestAnimationFrame(grow));
+  plot.onmouseover = e => {
+    const col = e.target.closest(".col"); if (!col) return;
+    tip.innerHTML = `<b>${col.dataset.v}</b> \u00b7 ${labelOfKey(col.dataset.k)}`;
+    const pr = plot.getBoundingClientRect(), cr = col.getBoundingClientRect();
+    tip.style.left = (cr.left - pr.left + cr.width / 2) + "px";
+    tip.style.top = (cr.top - pr.top - 4) + "px";
+    tip.classList.add("on");
+  };
+  plot.onmouseleave = () => tip.classList.remove("on");
+  $("xax").innerHTML = DAYS.length
+    ? `<span>${labelOfKey(DAYS[0])}</span><span>${labelOfKey(DAYS[DAYS.length - 1])}</span>` : "";
+}
+
 /* ─────────── Фильтры и игроки ─────────── */
 function renderFilters(){
   $("filters").innerHTML = kindsNow().map(k => {
@@ -949,6 +1128,21 @@ function renderFilters(){
 }
 
 function renderIndex(){
+  const row = $("idxRow");
+  if (TAB === "ranking"){ row.style.display = "none"; return; }
+  row.style.display = "";
+  row.classList.toggle("dayRow", TAB === "matches");
+
+  if (TAB === "matches"){
+    $("idxTitle").textContent = t("tabMatchesSub");
+    $("index").innerHTML = DAYS.map((d, i) => {
+      const n = GAMES.filter(m => m.date === d).length;
+      return `<button data-day="${i}" aria-pressed="${i === mday}">${dayLabelShort(d)}
+          <b>${labelOfKey(d).replace(/ \d{4}$/, "")} \u00b7 ${n}</b></button>`;
+    }).join("");
+    return;
+  }
+  $("idxTitle").textContent = t("index");
   const by = {};
   if (TAB === "fade"){
     for (const f of fadeList()) by[nameOf(f.recs[0])] = f.score;
@@ -962,8 +1156,122 @@ function renderIndex(){
 
 function renderWire(){
   const items = [...NEWS].sort((a,b) => b.ts.localeCompare(a.ts)).slice(0, 9).map(n =>
-    `<span><b>${nameOf(n)}</b><em>·</em>${n.tour.toUpperCase()}<em>·</em>${n.code}<em>·</em>${UI[LANG].ago(daysAgo(n.ts))}</span>`).join("");
+    `<span><button data-player="${idOfPlayer(n.who)}">${nameOf(n)}</button><em>·</em>${
+      n.tour.toUpperCase()}<em>·</em>${n.code}<em>·</em>${UI[LANG].ago(daysAgo(n.ts))}</span>`).join("");
   $("track").innerHTML = items + items;
+}
+
+/* ─────────── Расписание ─────────── */
+const DAYS = [...new Set(GAMES.map(m => m.date))].sort();
+
+function dayLabelShort(iso){
+  const [y, m, d] = iso.split("-").map(Number);
+  const dt = new Date(y, m - 1, d);
+  const now = new Date();
+  const diff = Math.round((dt - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 86400000);
+  if (diff === 0) return t("today");
+  if (diff === 1) return t("tomorrow");
+  const week = LANG === "ru" ? ["вс","пн","вт","ср","чт","пт","сб"]
+                             : ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  return week[dt.getDay()];
+}
+
+/* Основные турниры выше челленджеров, челленджеры выше ITF и UTR. */
+const evtRank = name => /futures|itf|utr/i.test(name) ? 3 : /challenger/i.test(name) ? 2 : 1;
+
+const dayGames = () => GAMES.filter(m => m.date === (DAYS[mday] || DAYS[0]));
+
+function matchMatches(m){
+  const q = query.trim().toLowerCase();
+  if (filter === "men" && m.tour !== "atp") return false;
+  if (filter === "women" && m.tour !== "wta") return false;
+  if (!q) return true;
+  return (m.p1.name + " " + m.p2.name + " " + m.event).toLowerCase().includes(q);
+}
+
+/* В счёте тай-брейк приклеен к геймам: «66» — это 6 и тай-брейк 6. */
+const games = v => Number(String(v).slice(0, 1));
+const setCell = v => String(v).replace(/^(\d)(\d+)$/, "$1<sup>$2</sup>");
+
+function side(p, sc, other){
+  const win = sc.length && other.length &&
+    sc.filter((v, i) => games(v) > games(other[i] || 0)).length > other.length / 2;
+  return `<div class="side${win ? " win" : ""}">
+      <span class="flag"></span>
+      <button class="nm" data-player="${p.slug}">${p.name}</button>
+      ${p.seed ? `<span class="sd">(${p.seed})</span>` : ""}
+    </div>`;
+}
+
+function renderMatches(){
+  const rows = dayGames().filter(matchMatches);
+  $("resultLine").textContent = `${rows.length} \u00b7 ${DAYS[mday] ? labelOfKey(DAYS[mday]) : ""}`;
+  $("feedTitle").textContent = t("tabMatches");
+
+  if (!rows.length){
+    $("feedBody").innerHTML = `<div class="empty fade"><div class="big">${t("noMatches")}</div></div>`;
+    return;
+  }
+  const byEvent = [];
+  for (const m of rows){
+    const last = byEvent[byEvent.length - 1];
+    if (!last || last.key !== m.event + m.tour) byEvent.push({key:m.event + m.tour, m, list:[]});
+    byEvent[byEvent.length - 1].list.push(m);
+  }
+
+  byEvent.sort((a, b) => evtRank(a.m.event) - evtRank(b.m.event));
+  $("feedBody").innerHTML = byEvent.map(g => `
+    <div class="evt">
+      <span class="tour ${g.m.tour}">${g.m.tour.toUpperCase()}</span>
+      <span class="name">${g.m.event}</span>
+      <span class="ln"></span>
+      <span class="n">${g.list.length}</span>
+    </div>
+    <div class="mtable">${g.list.map(m => `
+      <div class="mrow">
+        <span class="tm">${m.time || "\u2014"}</span>
+        <div class="pair">${side(m.p1, m.s1, m.s2)}${side(m.p2, m.s2, m.s1)}</div>
+        <div class="right">${m.s1.length
+          ? `<div class="sc"><b>${m.s1.map(setCell).join(" ")}</b> : <b>${m.s2.map(setCell).join(" ")}</b></div>`
+          : m.odds.length === 2
+            ? `<div class="od"><span>${m.odds[0]}</span><span>${m.odds[1]}</span></div>` : ""}</div>
+      </div>`).join("")}</div>`).join("");
+}
+
+/* ─────────── Рейтинг ─────────── */
+function rankRows(){
+  const q = query.trim().toLowerCase();
+  const list = filter === "women" ? RANK.wta : RANK.atp;
+  return q ? list.filter(r => r.name.toLowerCase().includes(q) ||
+                              (r.country || "").toLowerCase().includes(q)) : list;
+}
+
+function renderRanking(){
+  const rows = rankRows(), shown = rows.slice(0, rankShown);
+  requestAnimationFrame(syncBarHeight);
+  $("resultLine").textContent = `${rows.length} \u00b7 ${t("tabRankingSub")}`;
+  $("feedTitle").textContent = t("tabRanking");
+
+  $("feedBody").innerHTML = `<p class="rnote">${t("rankNote")}</p>
+    <div class="rtable">
+      <div class="rhead">
+        <span>${t("colPos")}</span><span>${t("colMove")}</span><span>${t("colPlayer")}</span>
+        <span class="pts">${t("colPts")}</span><span class="def">${t("colDef")}</span>
+      </div>
+      ${shown.map(r => `<div class="rrow">
+          <span class="pos">${r.rank}</span>
+          <span class="mv ${r.move > 0 ? "up" : r.move < 0 ? "dn" : "same"}">${
+            r.move > 0 ? "+" + r.move : r.move < 0 ? r.move : "\u00b7"}</span>
+          <span class="who"><button data-player="${r.slug}">${r.name}</button>
+            <span class="ctry">${r.country || ""}</span></span>
+          <span class="pts">${r.points.toLocaleString("ru-RU")}</span>
+          <span class="def${r.defend ? "" : " zero"}">${
+            r.defend ? r.defend.toLocaleString("ru-RU") : "\u2014"}</span>
+        </div>`).join("")}
+      ${rows.length > shown.length
+        ? `<button class="rmore" id="rankMore">${t("showMore")} \u00b7 ${rows.length - shown.length}</button>`
+        : ""}
+    </div>`;
 }
 
 /* ─────────── Лента ─────────── */
@@ -1049,6 +1357,8 @@ function renderFade(animate = true){
 }
 
 function renderFeed(animate = true){
+  if (TAB === "matches") return renderMatches();
+  if (TAB === "ranking") return renderRanking();
   if (TAB === "fade") return renderFade(animate);
   const rows = scope().filter(match).sort((a,b) => b.ts.localeCompare(a.ts));
   $("resultLine").textContent = `${recs(rows.length)} · ${t("sorted")}`;
@@ -1105,12 +1415,27 @@ function renderFeed(animate = true){
 }
 
 /* ─────────── Карточка игрока ─────────── */
-function openPlayer(who, fromHash){
-  const list = NEWS.filter(n => n.who === who).sort((a,b) => b.ts.localeCompare(a.ts));
-  if (!list.length) return;
+function openPlayer(id, fromHash){
+  const row = rowFor(id);
+  const key = (row && row.slug) || id;
+  const list = NEWS.filter(n => idOfPlayer(n.who) === key || n.who === id)
+    .sort((a, b) => b.ts.localeCompare(a.ts));
   const n0 = list[0];
-  const f = fadeList().find(x => x.who === who);
-  const c = KIND_COLOR[n0.tour === "atp" ? "men" : "women"];
+  if (!row && !n0) return;
+
+  const tour = row ? row.tour : n0.tour;
+  const name = n0 ? nameOf(n0) : (row.name || id);
+  const c = KIND_COLOR[tour === "atp" ? "men" : "women"];
+  const f = fadeList().find(x => idOfPlayer(x.who) === key);
+  const photo = PHOTO[key] || [];
+  const mono = name.replace(/[^A-Za-zА-Яа-яЁё]/g, " ").trim().split(/\s+/)
+    .slice(0, 2).map(w => w[0]).join("");
+
+  const facts = [];
+  if (row) facts.push(`<span>${t("rank")} <b>#${row.rank}</b></span>`);
+  if (row) facts.push(`<span>${t("profPts")} <b>${row.points.toLocaleString("ru-RU")}</b></span>`);
+  if (row && row.defend) facts.push(`<span>${t("profDefend")} <b>${row.defend.toLocaleString("ru-RU")}</b></span>`);
+  if (row && row.country) facts.push(`<span>${row.country}</span>`);
 
   const meter = f ? `<div class="meterBox">
       <div class="meter" data-band="${f.score >= 45 ? "hi" : f.score >= 25 ? "mid" : "low"}">
@@ -1121,7 +1446,20 @@ function openPlayer(who, fromHash){
           : f.status === "in" ? t("statusIn") : t("statusLikely")}</span></div>
     </div>` : "";
 
-  const tl = list.map(n => `<li style="--k:${(KIND_COLOR[n.kind] || KIND_COLOR.all).k}">
+  const game = GAMES.filter(m => m.p1.slug === key || m.p2.slug === key)
+    .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time))[0];
+  const rival = game ? (game.p1.slug === key ? game.p2 : game.p1) : null;
+  const next = game ? `<div class="nextM"><span class="t">${t("nextMatch")}</span>
+      <b>${game.event}</b> \u00b7 ${labelOfKey(game.date)}${game.time ? " \u00b7 " + game.time : ""}
+      \u00b7 ${t("vs")} <button class="nm" data-player="${rival.slug}">${rival.name}</button></div>` : "";
+
+  /* Полгода — окно по умолчанию; если за это время сигналов нет, показываем всё,
+     что есть, иначе карточка давно не играющего игрока была бы пустой. */
+  const recent = list.filter(n => daysAgo(n.ts) <= 183);
+  const shown = recent.length ? recent : list;
+  const hidden = list.length - shown.length;
+
+  const tl = shown.map(n => `<li style="--k:${(KIND_COLOR[n.kind] || KIND_COLOR.all).k}">
       <div class="when"><b>${labelOfKey(dayKey(n.ts))}</b>
         <span>${TOURN[n.code] || n.code}</span>
         <span>${badgeOf(n)}</span>
@@ -1130,25 +1468,36 @@ function openPlayer(who, fromHash){
       <a href="${n.src}" target="_blank" rel="noopener">${n.srcName} &#8599;</a>
     </li>`).join("");
 
-  $("mBody").innerHTML = `<div class="head">
-      <span class="tour ${n0.tour}">${n0.tour.toUpperCase()}</span>
-      ${n0.rank !== null ? `<span class="code">${t("rank")} #${n0.rank}</span>` : ""}
-      <span class="code">${recs(list.length)}</span>
+  $("mBody").innerHTML = `<div class="prof">
+      <div class="ph">${photo[0]
+        ? `<img src="${photo[0]}" alt="${name}" loading="lazy">`
+        : `<span class="mono">${mono}</span>`}</div>
+      <div>
+        <div class="head">
+          <span class="tour ${tour}">${tour.toUpperCase()}</span>
+          ${list.length ? `<span class="code">${recs(list.length)}</span>` : ""}
+        </div>
+        <h2 id="mName">${name}</h2>
+        <div class="facts">${facts.join("")}</div>
+        ${photo[1] ? `<div class="credit">${t("photoCredit")} \u00b7
+          <a href="https://en.wikipedia.org/wiki/${encodeURIComponent(photo[1])}"
+             target="_blank" rel="noopener">${photo[1]}</a></div>` : ""}
+      </div>
     </div>
-    <h2 id="mName">${nameOf(n0)}</h2>
-    ${meter}
-    <p class="secTitle">${t("history")}</p>
-    <ul class="tl">${tl}</ul>
-    <div class="acts">
+    ${meter}${next}
+    <p class="secTitle">${t("historySix")}</p>
+    ${shown.length ? `<ul class="tl">${tl}</ul>` : `<p class="rnote">${t("noRecords")}</p>`}
+    ${hidden > 0 ? `<p class="credit">${hidden} \u00b7 ${t("olderHidden")}</p>` : ""}
+    ${n0 ? `<div class="acts">
       <button class="copy" data-copy="${idOf(n0)}">${t("copy")}</button>
       <a class="copy" href="${n0.src}" target="_blank" rel="noopener">${n0.srcName} &#8599;</a>
-    </div>`;
+    </div>` : ""}`;
   $("mBody").style.setProperty("--k", c.k);
   $("modal").hidden = false;
   document.body.style.overflow = "hidden";
   $("mClose").title = t("close");
   $("mClose").focus();
-  if (!fromHash) history.pushState(null, "", "#/player/" + encodeURIComponent(who));
+  if (!fromHash) history.pushState(null, "", "#/player/" + encodeURIComponent(key));
 }
 
 function closeModal(silent){
@@ -1186,7 +1535,7 @@ function applyHash(){
     return;
   }
   if (TABS.includes(seg[0])) TAB = seg[0];
-  filter = kindsNow().includes(seg[1]) ? seg[1] : "all";
+  filter = kindsNow().includes(seg[1]) ? seg[1] : (TAB === "ranking" ? "men" : "all");
   closeModal(true);
   renderAll();
   $("q").value = query;
@@ -1207,6 +1556,7 @@ function renderStatic(){
   set("kicker", t("kicker")); html("heroTitle", t("heroTitle")); set("heroLead", t("heroLead"));
   set("ctaFeed", t("ctaFeed"));
   $("ctaTg").querySelector("span").textContent = t("ctaTg");
+  $("tgCaption").textContent = t("tgCaption");
   set("idxTitle", t("index"));
   set("promoTitle", t("promoTitle")); set("promoLead", t("promoLead"));
   set("tgName", t("tgName")); set("tgGo", t("tgGo")); set("note", t("note")); set("footNote", t("footNote"));
@@ -1248,15 +1598,31 @@ document.addEventListener("click", e => {
 
   const tb = e.target.closest("[data-tab]");
   if (tb && tb.dataset.tab !== TAB){
-    TAB = tb.dataset.tab; filter = "all";
+    TAB = tb.dataset.tab;
+    filter = TAB === "ranking" ? "men" : "all";
+    rankShown = 100;
+    mday = Math.min(mday, Math.max(0, DAYS.length - 1));
     renderTabs(); renderTiles(); renderChart();
     renderFilters(); renderIndex(); renderFeed();
     flash($("feedBody")); writeHash();
     return;
   }
 
+  const dayBtn = e.target.closest("[data-day]");
+  if (dayBtn){
+    mday = Number(dayBtn.dataset.day);
+    renderTiles(); renderChart(); renderFilters(); renderIndex(); renderFeed(); writeHash();
+    return;
+  }
+
+  if (e.target.id === "rankMore"){ rankShown += 100; renderRanking(); return; }
+
   const chip = e.target.closest("[data-kind]");
-  if (chip){ filter = chip.dataset.kind; renderFilters(); renderFeed(); writeHash(); return; }
+  if (chip){
+    filter = chip.dataset.kind; rankShown = 100;
+    renderTiles(); renderFilters(); renderFeed(); writeHash();
+    return;
+  }
 
   const st = e.target.closest("[data-star]");
   if (st){
@@ -1310,7 +1676,9 @@ addEventListener("hashchange", applyHash);
 
 /* Панель фильтров липнет ровно под шапкой, какой бы высоты та ни была. */
 function syncBarHeight(){
-  document.documentElement.style.setProperty("--barh", $("bar").offsetHeight + "px");
+  const bar = $("bar").offsetHeight;
+  document.documentElement.style.setProperty("--barh", bar + "px");
+  document.documentElement.style.setProperty("--stick", (bar + $("controls").offsetHeight) + "px");
 }
 addEventListener("resize", syncBarHeight);
 addEventListener("scroll", () => {
