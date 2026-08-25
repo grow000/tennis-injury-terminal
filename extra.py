@@ -316,21 +316,19 @@ def main():
 
     print("Карта сайта…")
     site = "https://grow000.github.io/tennis-injury-terminal/"
-    io.open("sitemap.xml", "w", encoding="utf-8", newline="").write(
-        '<?xml version="1.0" encoding="UTF-8"?>
-'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-'
-        '  <url>
-    <loc>%s</loc>
-    <lastmod>%s</lastmod>
-'
-        '    <changefreq>hourly</changefreq>
-    <priority>1.0</priority>
-  </url>
-'
-        '</urlset>
-' % (site, today.isoformat()))
+    sitemap = "\n".join([
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        "  <url>",
+        "    <loc>%s</loc>" % site,
+        "    <lastmod>%s</lastmod>" % today.isoformat(),
+        "    <changefreq>hourly</changefreq>",
+        "    <priority>1.0</priority>",
+        "  </url>",
+        "</urlset>",
+        "",
+    ])
+    io.open("sitemap.xml", "w", encoding="utf-8", newline="").write(sitemap)
     print("  sitemap.xml обновлён")
 
     print("Запись…")
