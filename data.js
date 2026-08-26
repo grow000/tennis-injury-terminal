@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-08-26 04:26";
+const UPDATED = "2026-08-26 06:55";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -140,6 +140,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-08-25 12:00", who:"Anastasia Potapova", whoRu:null, tour:"wta", rank:25, code:"MTY", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Monterrey before her first match.",
+   ru:"снялась с <b>Монтеррея</b> перед матчем first из-за <span class='flag'>спины</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   /* ─────────── ATP ─────────── */
   {ts:"2026-08-24 14:10", who:"Joao Fonseca", whoRu:"Жоао Фонсека", tour:"atp", rank:26, code:"USO", kind:"withdrawal", sig:"wd_mid",
    en:"withdrew from the <b>US Open</b> before his first-round match with an <span class='flag'>abdominal injury</span> — the same problem that stopped him in Cincinnati six days earlier.",
