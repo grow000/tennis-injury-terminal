@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-08-27 03:32";
+const UPDATED = "2026-08-27 16:55";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -140,6 +140,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-08-26 12:00", who:"Sebastian Baez", whoRu:null, tour:"atp", rank:50, code:"WST", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-2, 4-0 to Juan Manuel Cerundolo in the third round of Winston-Salem on Wednesday.",
+   ru:"снялся при 6-2 4-0 против Juan Manuel Cerundolo в третьем круге <b>Уинстон-Сейлема</b>, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-26 12:00", who:"Maria Timofeeva", whoRu:"Мария Тимофеева", tour:"wta", rank:92, code:"MTY", kind:"injury", sig:"wd_mid",
+   en:"withdrew from Monterrey before her second round match against Ann Li.",
+   ru:"снялась с <b>Монтеррея</b> перед матчем второго круга против Ann Li из-за <span class='flag'>спины</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-08-25 12:00", who:"Anastasia Potapova", whoRu:null, tour:"wta", rank:25, code:"MTY", kind:"injury", sig:"wd_mid", auto:true,
    en:"withdrew from Monterrey before her first match.",
    ru:"снялась с <b>Монтеррея</b> перед матчем first из-за <span class='flag'>спины</span>.",
