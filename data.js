@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-08-29 12:50";
+const UPDATED = "2026-08-29 19:25";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -140,6 +140,42 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-08-29 12:00", who:"Ethan Quinn", whoRu:"Итан Куинн", tour:"atp", rank:60, code:"USO", kind:"injury", sig:"wd_mid", auto:true,
+   en:"isn't in the US Open draw.",
+   ru:"isn't in the US Open draw.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-29 12:00", who:"Gabriel Diallo", whoRu:"Габриэль Диалло", tour:"atp", rank:114, code:"USO", kind:"injury", sig:"wd_mid", auto:true,
+   en:"isn't in the US Open draw.",
+   ru:"isn't in the US Open draw.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-29 12:00", who:"Sonay Kartal", whoRu:null, tour:"wta", rank:123, code:"USO", kind:"injury", sig:"wd_mid", auto:true,
+   en:"isn't in the US Open draw.",
+   ru:"isn't in the US Open draw.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-29 12:00", who:"Veronika Kudermetova", whoRu:null, tour:"atp", rank:null, code:"USO", kind:"withdrawal", sig:"wd_mid", auto:true,
+   en:"isn't in the US Open draw.",
+   ru:"isn't in the US Open draw.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-29 12:00", who:"Emma Raducanu", whoRu:"Эмма Радукану", tour:"wta", rank:68, code:"USO", kind:"injury", sig:"wd_mid", auto:true,
+   en:"isn't in the US Open draw.",
+   ru:"isn't in the US Open draw.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-29 12:00", who:"Victoria Mboko", whoRu:"Виктория Мбоко", tour:"wta", rank:15, code:"USO", kind:"injury", sig:"wd_mid", auto:true,
+   en:"isn't in the US Open draw.",
+   ru:"isn't in the US Open draw.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-29 12:00", who:"Ajla Tomljanovic", whoRu:"Айла Томлянович", tour:"wta", rank:103, code:"USO", kind:"injury", sig:"wd_mid", auto:true,
+   en:"isn't in the US Open draw.",
+   ru:"isn't in the US Open draw.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-29 12:00", who:"Ons Jabeur", whoRu:null, tour:"atp", rank:null, code:"USO", kind:"injury", sig:"wd_mid", auto:true,
+   en:"isn't in the US Open draw.",
+   ru:"isn't in the US Open draw.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-08-29 12:00", who:"Jaqueline Cristian", whoRu:"Жаклин Кристиан", tour:"wta", rank:43, code:"USO", kind:"injury", sig:"wd_mid", auto:true,
+   en:"isn't in the US Open draw.",
+   ru:"isn't in the US Open draw.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-08-26 12:00", who:"Sebastian Baez", whoRu:null, tour:"atp", rank:50, code:"WST", kind:"injury", sig:"retired", auto:true,
    en:"retired down 6-2, 4-0 to Juan Manuel Cerundolo in the third round of Winston-Salem on Wednesday.",
    ru:"снялся при 6-2 4-0 против Juan Manuel Cerundolo в третьем круге <b>Уинстон-Сейлема</b>, причина не раскрыта.",
