@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-08-30 23:45";
+const UPDATED = "2026-08-31 02:17";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -144,7 +144,7 @@ const NEWS = [
    en:"withdrew from the US Open before his first round match.",
    ru:"снялся с <b>US Open</b> перед матчем первого круга, причина не раскрыта.",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
-  {ts:"2026-08-29 12:00", who:"Ethan Quinn", whoRu:"Итан Куинн", tour:"atp", rank:60, code:"USO", kind:"injury", sig:"wd_mid", auto:true,
+  {ts:"2026-08-29 12:00", who:"Ethan Quinn", whoRu:"Итан Куинн", tour:"atp", rank:61, code:"USO", kind:"injury", sig:"wd_mid", auto:true,
    en:"isn't in the US Open draw.",
    ru:"isn't in the US Open draw.",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
@@ -180,7 +180,7 @@ const NEWS = [
    en:"isn't in the US Open draw.",
    ru:"isn't in the US Open draw.",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
-  {ts:"2026-08-26 12:00", who:"Sebastian Baez", whoRu:null, tour:"atp", rank:50, code:"WST", kind:"injury", sig:"retired", auto:true,
+  {ts:"2026-08-26 12:00", who:"Sebastian Baez", whoRu:null, tour:"atp", rank:51, code:"WST", kind:"injury", sig:"retired", auto:true,
    en:"retired down 6-2, 4-0 to Juan Manuel Cerundolo in the third round of Winston-Salem on Wednesday.",
    ru:"снялся при 6-2 4-0 против Juan Manuel Cerundolo в третьем круге <b>Уинстон-Сейлема</b>, причина не раскрыта.",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
@@ -206,17 +206,17 @@ const NEWS = [
    ru:"выбыл из <b>Уинстон-Сейлема</b>, причина не раскрыта.",
    repl:"Herbert (LL, vs Sonego)", replRu:"Эрбер (LL, против Сонего)",
    src:"https://x.com/EntryLists", srcName:"@EntryLists"},
-  {ts:"2026-08-23 12:20", who:"Marton Fucsovics", whoRu:"Мартон Фучович", tour:"atp", rank:121, code:"WST", kind:"injury", sig:"wd_mid",
+  {ts:"2026-08-23 12:20", who:"Marton Fucsovics", whoRu:"Мартон Фучович", tour:"atp", rank:122, code:"WST", kind:"injury", sig:"wd_mid",
    en:"withdrew from <b>Winston-Salem</b> before round one with a <span class='flag'>shoulder problem</span>, ten days after retiring in Cincinnati with his back.",
    ru:"снялся с <b>Уинстон-Сейлема</b> перед первым кругом из-за <span class='flag'>плеча</span> — через десять дней после снятия в Цинциннати из-за спины.",
    repl:"Lucky loser", replRu:"Счастливый неудачник",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
-  {ts:"2026-08-23 11:50", who:"Dino Prizmic", whoRu:"Дино Призмич", tour:"atp", rank:101, code:"WST", kind:"injury", sig:"wd_mid",
+  {ts:"2026-08-23 11:50", who:"Dino Prizmic", whoRu:"Дино Призмич", tour:"atp", rank:102, code:"WST", kind:"injury", sig:"wd_mid",
    en:"withdrew from <b>Winston-Salem</b> before his first-round match with a <span class='flag'>hip problem</span>.",
    ru:"снялся с <b>Уинстон-Сейлема</b> перед матчем первого круга из-за <span class='flag'>бедра</span>.",
    repl:"Lucky loser", replRu:"Счастливый неудачник",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
-  {ts:"2026-08-23 11:30", who:"Valentin Royer", whoRu:"Валентен Руайе", tour:"atp", rank:74, code:"WST", kind:"withdrawal", sig:"rest",
+  {ts:"2026-08-23 11:30", who:"Valentin Royer", whoRu:"Валентен Руайе", tour:"atp", rank:75, code:"WST", kind:"withdrawal", sig:"rest",
    en:"withdrew from <b>Winston-Salem</b> before round one, listed as rest.",
    ru:"снялся с <b>Уинстон-Сейлема</b> перед первым кругом, причина указана как отдых.",
    repl:"Lucky loser", replRu:"Счастливый неудачник",
@@ -225,7 +225,7 @@ const NEWS = [
    en:"both entered <b>Winston-Salem</b> as alternates while climbing back from injuries picked up at Wimbledon.",
    ru:"оба попали в основную сетку <b>Уинстон-Сейлема</b> как запасные, возвращаясь после травм, полученных на Уимблдоне.",
    src:"https://lastwordonsports.com/tennis/2026/08/22/withdraw-atp-winston-salem/", srcName:"Last Word"},
-  {ts:"2026-08-22 10:00", who:"Juncheng Shang", whoRu:"Шан Цзюнчэн", tour:"atp", rank:227, code:"WST", kind:"returning", sig:"return",
+  {ts:"2026-08-22 10:00", who:"Juncheng Shang", whoRu:"Шан Цзюнчэн", tour:"atp", rank:228, code:"WST", kind:"returning", sig:"return",
    en:"skipped <b>Winston-Salem</b> to stay fit for best-of-five in New York. Comeback began in Washington on a protected ranking; already beat Rublev.",
    ru:"пропустил <b>Уинстон-Сейлем</b>, чтобы сохранить форму под пятисетовый формат. Возвращение начал в Вашингтоне по защищённому рейтингу, уже обыграл Рублёва.",
    src:"https://lastwordonsports.com/tennis/2026/08/22/withdraw-atp-winston-salem/", srcName:"Last Word"},
@@ -256,7 +256,7 @@ const NEWS = [
    en:"has been <span class='flag'>suspended</span> after testing positive in-competition for cocaine at the Mallorca Championships in June.",
    ru:"<span class='flag'>отстранён</span> после положительной допинг-пробы на кокаин, взятой на турнире в Мальорке в июне.",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire / NYT"},
-  {ts:"2026-08-19 12:00", who:"Ethan Quinn", whoRu:"Итан Куинн", tour:"atp", rank:60, code:"USO", kind:"withdrawal", sig:"wd_pre",
+  {ts:"2026-08-19 12:00", who:"Ethan Quinn", whoRu:"Итан Куинн", tour:"atp", rank:61, code:"USO", kind:"withdrawal", sig:"wd_pre",
    en:"withdrew from the <b>US Open</b> entry list.",
    ru:"снялся с заявки на <b>US Open</b>.",
    repl:"Martin Damm", replRu:"Мартин Дамм",
@@ -291,7 +291,7 @@ const NEWS = [
    en:"withdrew from <b>Cincinnati</b> before his first-round match with an <span class='flag'>abdominal problem</span>.",
    ru:"снялся с <b>Цинциннати</b> перед первым кругом из-за <span class='flag'>живота</span>.",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
-  {ts:"2026-08-13 16:45", who:"Marton Fucsovics", whoRu:"Мартон Фучович", tour:"atp", rank:121, code:"CIN", kind:"injury", sig:"retired",
+  {ts:"2026-08-13 16:45", who:"Marton Fucsovics", whoRu:"Мартон Фучович", tour:"atp", rank:122, code:"CIN", kind:"injury", sig:"retired",
    en:"retired with a <span class='flag'>back problem</span> down 1-3 to Atmane in round one of <b>Cincinnati</b>.",
    ru:"снялся с <span class='flag'>проблемой спины</span> при 1-3 против Атмана в первом круге <b>Цинциннати</b>.",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
@@ -320,7 +320,7 @@ const NEWS = [
    en:"withdrew from his second-round match in <b>Montreal</b> against Blockx with a <span class='flag'>back issue</span>.",
    ru:"снялся с матча второго круга в <b>Монреале</b> против Блокса из-за <span class='flag'>спины</span>.",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
-  {ts:"2026-08-04 20:15", who:"Denis Shapovalov", whoRu:"Денис Шаповалов", tour:"atp", rank:47, code:"MTL", kind:"injury", sig:"retired",
+  {ts:"2026-08-04 20:15", who:"Denis Shapovalov", whoRu:"Денис Шаповалов", tour:"atp", rank:48, code:"MTL", kind:"injury", sig:"retired",
    en:"retired with a <span class='flag'>leg problem</span> down 4-6 6-4 0-3 to Svajda in round one of <b>Montreal</b>.",
    ru:"снялся с <span class='flag'>проблемой ноги</span> при 4-6 6-4 0-3 против Свайды в первом круге <b>Монреаля</b>.",
    src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
