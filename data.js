@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-08-31 02:17";
+const UPDATED = "2026-08-31 07:29";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -140,6 +140,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-08-30 12:00", who:"Marin Cilic", whoRu:null, tour:"atp", rank:81, code:"USO", kind:"withdrawal", sig:"wd_mid", auto:true,
+   en:"withdrew from the US Open before his first round match.",
+   ru:"снялся с <b>US Open</b> перед матчем первого круга, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-08-30 12:00", who:"Casper Ruud", whoRu:"Каспер Рууд", tour:"atp", rank:20, code:"USO", kind:"withdrawal", sig:"wd_mid",
    en:"withdrew from the US Open before his first round match.",
    ru:"снялся с <b>US Open</b> перед матчем первого круга, причина не раскрыта.",
