@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-09-10 02:02";
+const UPDATED = "2026-09-10 06:45";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -140,6 +140,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-09-09 12:00", who:"Alexander Blockx", whoRu:null, tour:"atp", rank:34, code:"USO", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-2, 7-5, 3-2 to Karen Khachanov in the quarterfinals of the US Open on Wednesday.",
+   ru:"снялся при 6-2 7-5 3-2 против Karen Khachanov в четвертьфинале <b>US Open</b>, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-09-01 12:00", who:"Corentin Moutet", whoRu:"Корентен Муте", tour:"atp", rank:62, code:"USO", kind:"injury", sig:"retired", auto:true,
    en:"retired down 7-6 (4). 6-4, 3-0 to Dane Sweeny in the first round of the US Open on Tuesday.",
    ru:"retired down 7-6 (4). 6-4, 3-0 to Dane Sweeny in the first round of the US Open on Tuesday.",
