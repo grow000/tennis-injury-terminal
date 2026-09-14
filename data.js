@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-09-14 15:11";
+const UPDATED = "2026-09-14 22:45";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -133,6 +133,7 @@ const t = k => UI[LANG][k];
 
 /* Турниры: код → название для карточек. */
 const TOURN = {
+  SP:"SP",
   USO:"US Open", CIN:"Cincinnati", WST:"Winston-Salem", MTL:"Montreal", TOR:"Toronto",
   MTY:"Monterrey", STU:"Stuttgart", AO:"Australian Open", RG:"Roland Garros", WIM:"Wimbledon",
 };
@@ -140,6 +141,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-09-14 12:00", who:"Leolia Jeanjean", whoRu:null, tour:"wta", rank:108, code:"SP", kind:"withdrawal", sig:"wd_mid", auto:true,
+   en:"withdrew from Sao Paulo before her first round match.",
+   ru:"снялась с <b>Sao Paulo</b> перед матчем первого круга, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-09-14 12:00", who:"Mayar Sherif", whoRu:null, tour:"wta", rank:48, code:"G", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Guadalajara before her first round match.",
+   ru:"снялась с <b>Guadalajara</b> перед матчем первого круга из-за <span class='flag'>недомогания</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-09-09 12:00", who:"Alexander Blockx", whoRu:null, tour:"atp", rank:27, code:"USO", kind:"injury", sig:"retired", auto:true,
    en:"retired down 6-2, 7-5, 3-2 to Karen Khachanov in the quarterfinals of the US Open on Wednesday.",
    ru:"снялся при 6-2 7-5 3-2 против Karen Khachanov в четвертьфинале <b>US Open</b>, причина не раскрыта.",
