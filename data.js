@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-09-15 14:21";
+const UPDATED = "2026-09-15 19:33";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -141,6 +141,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-09-15 12:00", who:"Jack Draper", whoRu:"Джек Дрейпер", tour:"atp", rank:155, code:"TBD", kind:"withdrawal", sig:"wd_pre", auto:true,
+   en:"announced on Tuesday that he will miss the rest of the season due to injury.",
+   ru:"announced on Tuesday that he will miss the rest of the season due to injury.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-09-14 12:00", who:"Leolia Jeanjean", whoRu:null, tour:"wta", rank:108, code:"SP", kind:"withdrawal", sig:"wd_mid", auto:true,
    en:"withdrew from Sao Paulo before her first round match.",
    ru:"снялась с <b>Sao Paulo</b> перед матчем первого круга, причина не раскрыта.",
