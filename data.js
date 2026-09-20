@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-09-20 18:41";
+const UPDATED = "2026-09-20 23:30";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -133,6 +133,7 @@ const t = k => UI[LANG][k];
 
 /* Турниры: код → название для карточек. */
 const TOURN = {
+  S:"S",
   SP:"SP",
   USO:"US Open", CIN:"Cincinnati", WST:"Winston-Salem", MTL:"Montreal", TOR:"Toronto",
   MTY:"Monterrey", STU:"Stuttgart", AO:"Australian Open", RG:"Roland Garros", WIM:"Wimbledon",
@@ -141,6 +142,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-09-20 12:00", who:"Janice Tjen", whoRu:null, tour:"wta", rank:51, code:"S", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Singapore before her first round match.",
+   ru:"снялась с <b>Singapore</b> перед матчем первого круга из-за <span class='flag'>запястья</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-09-16 12:00", who:"Whitney Osuigwe", whoRu:null, tour:"wta", rank:241, code:"SP", kind:"injury", sig:"wd_mid", auto:true,
    en:"withdrew from Sao Paulo before her first round match.",
    ru:"снялась с <b>Sao Paulo</b> перед матчем первого круга из-за <span class='flag'>недомогания</span>.",
