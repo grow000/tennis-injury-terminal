@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-09-24 14:20";
+const UPDATED = "2026-09-24 19:45";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -133,6 +133,7 @@ const t = k => UI[LANG][k];
 
 /* Турниры: код → название для карточек. */
 const TOURN = {
+  C:"C",
   S:"S",
   SP:"SP",
   USO:"US Open", CIN:"Cincinnati", WST:"Winston-Salem", MTL:"Montreal", TOR:"Toronto",
@@ -142,6 +143,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-09-24 12:00", who:"Nuno Borges", whoRu:null, tour:"atp", rank:48, code:"C", kind:"withdrawal", sig:"rest", auto:true,
+   en:"withdrew from Chengdu before his first round match.",
+   ru:"снялся с <b>Chengdu</b> перед матчем первого круга, причина указана как отдых.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-09-23 12:00", who:"Barbora Krejcikova", whoRu:null, tour:"wta", rank:44, code:"S", kind:"injury", sig:"wd_mid", auto:true,
    en:"withdrew from Singapore before her second round match against Elise Mertens.",
    ru:"снялась с <b>Singapore</b> перед матчем второго круга против Elise Mertens из-за <span class='flag'>спины</span>.",
