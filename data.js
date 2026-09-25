@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-09-25 14:25";
+const UPDATED = "2026-09-25 19:50";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -143,6 +143,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-09-25 12:00", who:"Jannik Sinner", whoRu:"Янник Синнер", tour:"atp", rank:1, code:"TBD", kind:"withdrawal", sig:"wd_pre",
+   en:"is out for the 2026 Beijing Open, according to his announcement Friday.",
+   ru:"снялся с <b>Beijing Open</b> из-за <span class='flag'>колена</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-09-24 12:00", who:"Nuno Borges", whoRu:null, tour:"atp", rank:48, code:"C", kind:"withdrawal", sig:"rest", auto:true,
    en:"withdrew from Chengdu before his first round match.",
    ru:"снялся с <b>Chengdu</b> перед матчем первого круга, причина указана как отдых.",
