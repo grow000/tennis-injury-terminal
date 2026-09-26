@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-09-26 00:15";
+const UPDATED = "2026-09-26 07:09";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -143,6 +143,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-09-25 12:00", who:"Ben Shelton", whoRu:null, tour:"atp", rank:4, code:"T", kind:"withdrawal", sig:"wd_mid", auto:true,
+   en:"withdrew from Tokyo on Friday.",
+   ru:"withdrew from Tokyo on Friday.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-09-25 12:00", who:"Tatiana Prozorova", whoRu:null, tour:"wta", rank:180, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from her semifinal match against Talia Gibson in Singapore on Friday.",
+   ru:"withdrew from her semifinal match against Talia Gibson in Singapore on Friday.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-09-25 12:00", who:"Jannik Sinner", whoRu:"Янник Синнер", tour:"atp", rank:1, code:"TBD", kind:"withdrawal", sig:"wd_pre",
    en:"is out for the 2026 Beijing Open, according to his announcement Friday.",
    ru:"снялся с <b>Beijing Open</b> из-за <span class='flag'>колена</span>.",
