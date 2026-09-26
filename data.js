@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-09-26 19:01";
+const UPDATED = "2026-09-26 23:47";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -143,6 +143,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-09-26 12:00", who:"Alina Korneeva", whoRu:null, tour:"wta", rank:81, code:"S", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-2, 1-0 to Maya Joint in the semifinals of Seoul on Saturday.",
+   ru:"снялась с <span class='flag'>проблемой бедра</span> при 6-2 1-0 против Maya Joint в полуфинале <b>Seoul</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-09-25 12:00", who:"Ben Shelton", whoRu:null, tour:"atp", rank:4, code:"T", kind:"withdrawal", sig:"wd_mid", auto:true,
    en:"withdrew from Tokyo on Friday.",
    ru:"withdrew from Tokyo on Friday.",
