@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-09-29 15:23";
+const UPDATED = "2026-09-29 22:51";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -133,6 +133,7 @@ const t = k => UI[LANG][k];
 
 /* Турниры: код → название для карточек. */
 const TOURN = {
+  B:"B",
   C:"C",
   S:"S",
   SP:"SP",
@@ -143,6 +144,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-09-29 12:00", who:"Petra Marcinko", whoRu:null, tour:"wta", rank:81, code:"B", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Beijing before her first round match.",
+   ru:"снялась с <b>Beijing</b> перед матчем первого круга из-за <span class='flag'>спины</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-09-29 12:00", who:"Alina Korneeva", whoRu:null, tour:"wta", rank:69, code:"B", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Beijing before her first round match.",
+   ru:"снялась с <b>Beijing</b> перед матчем первого круга из-за <span class='flag'>бедра</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-09-28 12:00", who:"Amanda Anisimova", whoRu:null, tour:"wta", rank:11, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
    en:"announced on Monday that she is not going to play any more this year in attempt to recover from injury.",
    ru:"announced on Monday that she is not going to play any more this year in attempt to recover from injury.",
