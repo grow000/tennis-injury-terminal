@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-09-29 00:07";
+const UPDATED = "2026-09-29 07:54";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -143,6 +143,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-09-28 12:00", who:"Amanda Anisimova", whoRu:null, tour:"wta", rank:11, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
+   en:"announced on Monday that she is not going to play any more this year in attempt to recover from injury.",
+   ru:"announced on Monday that she is not going to play any more this year in attempt to recover from injury.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-09-28 12:00", who:"Veronika Kudermetova", whoRu:null, tour:"atp", rank:null, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
    en:"Kudermetova, who hasn't played at all this season, announced last week that she is pregnant.",
    ru:"Kudermetova, who hasn't played at all this season, announced last week that she is pregnant.",
