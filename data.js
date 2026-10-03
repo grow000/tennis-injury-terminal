@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-03 00:57";
+const UPDATED = "2026-10-03 07:26";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -144,6 +144,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-02 12:00", who:"Emma Navarro", whoRu:null, tour:"wta", rank:24, code:"TBD", kind:"withdrawal", sig:"wd_pre", auto:true,
+   en:"Navarro announced on social media Wednesday that she will miss the remainder of the 2026 season to aid in rest and recovery.",
+   ru:"Navarro announced on social media Wednesday that she will miss the remainder of the 2026 season to aid in rest and recovery.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-02 12:00", who:"Anastasia Potapova", whoRu:null, tour:"wta", rank:25, code:"B", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 4-1 to Sinja Kraus in the second round of Beijing.",
+   ru:"снялась с <span class='flag'>проблемой плеча</span> при 4-1 против Sinja Kraus во втором круге <b>Beijing</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-01 12:00", who:"Eva Lys", whoRu:null, tour:"wta", rank:102, code:"B", kind:"injury", sig:"retired", auto:true,
    en:"retired down 6-1, 3-0 to Xinran Sun in the first round of Beijing on Thursday.",
    ru:"снялась с <span class='flag'>проблемой стопы</span> при 6-1 3-0 против Xinran Sun в первом круге <b>Beijing</b>.",
