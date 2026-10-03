@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-03 23:45";
+const UPDATED = "2026-10-04 02:35";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -144,6 +144,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-03 12:00", who:"Anna Kalinskaya", whoRu:"Анна Калинская", tour:"wta", rank:22, code:"B", kind:"injury", sig:"retired",
+   en:"retired down 6-7 (4), 6-4, 3-0 to Qinwen Zheng in the second round of Beijing on Saturday.",
+   ru:"снялась при 6-7 (4) 6-4 3-0 против Чжэн Циньвэнь во втором круге <b>Beijing</b>, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-03 12:00", who:"Jannik Sinner", whoRu:"Янник Синнер", tour:"atp", rank:1, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
+   en:"will remain sidelined for the upcoming Masters 1000 tournament in Shanghai.",
+   ru:"will remain sidelined for the upcoming Masters 1000 tournament in Shanghai.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-02 12:00", who:"Emma Navarro", whoRu:null, tour:"wta", rank:24, code:"TBD", kind:"withdrawal", sig:"wd_pre", auto:true,
    en:"Navarro announced on social media Wednesday that she will miss the remainder of the 2026 season to aid in rest and recovery.",
    ru:"Navarro announced on social media Wednesday that she will miss the remainder of the 2026 season to aid in rest and recovery.",
