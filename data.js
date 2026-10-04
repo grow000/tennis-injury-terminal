@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-04 14:57";
+const UPDATED = "2026-10-04 19:47";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -144,6 +144,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-04 12:00", who:"Denis Shapovalov", whoRu:"Денис Шаповалов", tour:"atp", rank:46, code:"T", kind:"injury", sig:"retired",
+   en:"retired down 7-6 (3), 2-1 to Carlos Alcaraz in the quarterfinals of Tokyo on Sunday.",
+   ru:"снялся при 7-6 (3) 2-1 против Карлос Алькарас в четвертьфинале <b>Tokyo</b>, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-03 12:00", who:"Anna Kalinskaya", whoRu:"Анна Калинская", tour:"wta", rank:22, code:"B", kind:"injury", sig:"retired",
    en:"retired down 6-7 (4), 6-4, 3-0 to Qinwen Zheng in the second round of Beijing on Saturday.",
    ru:"снялась при 6-7 (4) 6-4 3-0 против Чжэн Циньвэнь во втором круге <b>Beijing</b>, причина не раскрыта.",
