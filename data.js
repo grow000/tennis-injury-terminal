@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-06 15:59";
+const UPDATED = "2026-10-06 23:03";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -144,6 +144,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-06 12:00", who:"Jannik Sinner", whoRu:"Янник Синнер", tour:"atp", rank:1, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
+   en:"announced that his 2026 season has come to an end, Jose Morgado of the Lisbon Diario Record reports.",
+   ru:"announced that his 2026 season has come to an end, Jose Morgado of the Lisbon Diario Record reports.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-06 12:00", who:"Denis Shapovalov", whoRu:"Денис Шаповалов", tour:"atp", rank:42, code:"S", kind:"injury", sig:"wd_mid",
+   en:"withdrew from Shanghai before his first round match.",
+   ru:"снялся с <b>Shanghai</b> перед матчем первого круга из-за <span class='flag'>бедра</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-04 12:00", who:"Denis Shapovalov", whoRu:"Денис Шаповалов", tour:"atp", rank:42, code:"T", kind:"injury", sig:"retired",
    en:"retired down 7-6 (3), 2-1 to Carlos Alcaraz in the quarterfinals of Tokyo on Sunday.",
    ru:"снялся при 7-6 (3) 2-1 против Карлос Алькарас в четвертьфинале <b>Tokyo</b>, причина не раскрыта.",
