@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-07 12:59";
+const UPDATED = "2026-10-07 21:38";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -144,6 +144,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-07 12:00", who:"Nikoloz Basilashvili", whoRu:null, tour:"atp", rank:124, code:"S", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-3, 2-2 to Adrian Mannarino in the first round of Shanghai on Wednesday.",
+   ru:"снялся с <span class='flag'>проблемой колена</span> при 6-3 2-2 против Adrian Mannarino в первом круге <b>Shanghai</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-06 12:00", who:"Jannik Sinner", whoRu:"Янник Синнер", tour:"atp", rank:1, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
    en:"announced that his 2026 season has come to an end, Jose Morgado of the Lisbon Diario Record reports.",
    ru:"announced that his 2026 season has come to an end, Jose Morgado of the Lisbon Diario Record reports.",
