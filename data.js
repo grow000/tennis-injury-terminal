@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-09 13:13";
+const UPDATED = "2026-10-09 21:07";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -144,6 +144,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-09 12:00", who:"Alex Molcan", whoRu:null, tour:"atp", rank:84, code:"S", kind:"withdrawal", sig:"wd_mid", auto:true,
+   en:"withdrew from Shanghai before his second round match against Alex de Minaur.",
+   ru:"снялся с <b>Shanghai</b> перед матчем второго круга против Alex de Minaur, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-07 12:00", who:"Nikoloz Basilashvili", whoRu:null, tour:"atp", rank:124, code:"S", kind:"injury", sig:"retired", auto:true,
    en:"retired down 6-3, 2-2 to Adrian Mannarino in the first round of Shanghai on Wednesday.",
    ru:"снялся с <span class='flag'>проблемой колена</span> при 6-3 2-2 против Adrian Mannarino в первом круге <b>Shanghai</b>.",
