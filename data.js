@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-10 03:34";
+const UPDATED = "2026-10-10 12:34";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -144,6 +144,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-10 12:00", who:"Alex Molcan", whoRu:null, tour:"atp", rank:84, code:"TBD", kind:"withdrawal", sig:"wd_mid", auto:true,
+   en:"Molcan defeated Federico Cina in the round of 128 of the Shanghai Masters with a score of 4-6, 6-1, 6-2 on Wednesday.",
+   ru:"Molcan defeated Federico Cina in the round of 128 of the Shanghai Masters with a score of 4-6, 6-1, 6-2 on Wednesday.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-09 12:00", who:"Alex Molcan", whoRu:null, tour:"atp", rank:84, code:"S", kind:"withdrawal", sig:"wd_mid", auto:true,
    en:"withdrew from Shanghai before his second round match against Alex de Minaur.",
    ru:"снялся с <b>Shanghai</b> перед матчем второго круга против Alex de Minaur, причина не раскрыта.",
