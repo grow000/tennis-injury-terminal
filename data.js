@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-11 15:21";
+const UPDATED = "2026-10-11 22:23";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -133,6 +133,7 @@ const t = k => UI[LANG][k];
 
 /* Турниры: код → название для карточек. */
 const TOURN = {
+  W:"W",
   B:"B",
   C:"C",
   S:"S",
@@ -144,6 +145,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-11 12:00", who:"Oleksandra Oliynykova", whoRu:null, tour:"wta", rank:47, code:"W", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Wuhan before her first round match.",
+   ru:"снялась с <b>Wuhan</b> перед матчем первого круга из-за <span class='flag'>голеностопа</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-11 12:00", who:"Linda Noskova", whoRu:null, tour:"wta", rank:6, code:"W", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Wuhan before her first match.",
+   ru:"снялась с <b>Wuhan</b> перед матчем first из-за <span class='flag'>икры</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-10 12:00", who:"Alex Molcan", whoRu:null, tour:"atp", rank:84, code:"TBD", kind:"withdrawal", sig:"wd_mid", auto:true,
    en:"Molcan defeated Federico Cina in the round of 128 of the Shanghai Masters with a score of 4-6, 6-1, 6-2 on Wednesday.",
    ru:"Molcan defeated Federico Cina in the round of 128 of the Shanghai Masters with a score of 4-6, 6-1, 6-2 on Wednesday.",
