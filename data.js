@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-12 13:26";
+const UPDATED = "2026-10-13 00:03";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -145,6 +145,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-12 12:00", who:"Clara Tauson", whoRu:null, tour:"wta", rank:53, code:"W", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-1, 2-0 to Marie Bouzkova in the first round of Wuhan on Monday.",
+   ru:"снялась с <span class='flag'>проблемой lower leg</span> при 6-1 2-0 против Marie Bouzkova в первом круге <b>Wuhan</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-12 12:00", who:"Anna Kalinskaya", whoRu:"Анна Калинская", tour:"wta", rank:21, code:"W", kind:"injury", sig:"wd_mid",
+   en:"withdrew from Wuhan before her first round match.",
+   ru:"снялась с <b>Wuhan</b> перед матчем первого круга из-за <span class='flag'>недомогания</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-11 12:00", who:"Qinwen Zheng", whoRu:"Чжэн Циньвэнь", tour:"wta", rank:23, code:"TBD", kind:"withdrawal", sig:"wd_pre",
    en:"has withdrawn from Wuhan before her first match, Reem Abulleil of The National reports.",
    ru:"снялась с <b>Wuhan before her first match</b> из-за <span class='flag'>плеча</span>.",
