@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-13 09:02";
+const UPDATED = "2026-10-13 19:47";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -145,6 +145,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-13 12:00", who:"Camila Osorio", whoRu:null, tour:"wta", rank:67, code:"W", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-1, 3-0 to Ann Li in the first round of Wuhan on Tuesday.",
+   ru:"снялась с <span class='flag'>проблемой спины</span> при 6-1 3-0 против Ann Li в первом круге <b>Wuhan</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-12 12:00", who:"Clara Tauson", whoRu:null, tour:"wta", rank:53, code:"W", kind:"injury", sig:"retired", auto:true,
    en:"retired down 6-1, 2-0 to Marie Bouzkova in the first round of Wuhan on Monday.",
    ru:"снялась с <span class='flag'>проблемой lower leg</span> при 6-1 2-0 против Marie Bouzkova в первом круге <b>Wuhan</b>.",
