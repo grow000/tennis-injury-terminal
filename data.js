@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-14 14:26";
+const UPDATED = "2026-10-14 19:47";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -145,6 +145,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-14 12:00", who:"Felix Auger-Aliassime", whoRu:"Феликс Оже-Альяссим", tour:"atp", rank:6, code:"S", kind:"injury", sig:"retired",
+   en:"retired down 5-2 to Casper Ruud in the fourth round of Shanghai on Wednesday.",
+   ru:"снялся с <span class='flag'>проблемой колена</span> при 5-2 против Каспер Рууд в четвёртом круге <b>Shanghai</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-13 12:00", who:"Camila Osorio", whoRu:null, tour:"wta", rank:67, code:"W", kind:"injury", sig:"retired", auto:true,
    en:"retired down 6-1, 3-0 to Ann Li in the first round of Wuhan on Tuesday.",
    ru:"снялась с <span class='flag'>проблемой спины</span> при 6-1 3-0 против Ann Li в первом круге <b>Wuhan</b>.",
