@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-17 18:12";
+const UPDATED = "2026-10-17 23:18";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -145,6 +145,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-17 12:00", who:"Joao Fonseca", whoRu:"Жоао Фонсека", tour:"atp", rank:29, code:"TBD", kind:"withdrawal", sig:"wd_pre", auto:true,
+   en:"announced on Saturday that he will miss the remainder of the season.",
+   ru:"announced on Saturday that he will miss the remainder of the season.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-15 12:00", who:"Arthur Gea", whoRu:null, tour:"atp", rank:56, code:"S", kind:"injury", sig:"retired", auto:true,
    en:"retired down 4-1 to Alejandro Davidovich Fokina in the quarterfinals of Shanghai on Thursday.",
    ru:"снялся при 4-1 против Алехандро Давидович Фокина в четвертьфинале <b>Shanghai</b>, причина не раскрыта.",
