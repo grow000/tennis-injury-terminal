@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-19 15:32";
+const UPDATED = "2026-10-19 23:26";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -145,6 +145,22 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-19 12:00", who:"Caty McNally", whoRu:null, tour:"wta", rank:59, code:"O", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-4, 3-1 to Sinja Kraus in the first round of Osaka on Monday.",
+   ru:"снялась с <span class='flag'>проблемой спины</span> при 6-4 3-1 против Sinja Kraus в первом круге <b>Osaka</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-19 12:00", who:"Sonay Kartal", whoRu:null, tour:"wta", rank:49, code:"O", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Osaka before her first round match.",
+   ru:"снялась с <b>Osaka</b> перед матчем первого круга из-за <span class='flag'>колена</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-19 12:00", who:"Xiyu Wang", whoRu:null, tour:"wta", rank:81, code:"N", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Ningbo before her first round match.",
+   ru:"снялась с <b>Ningbo</b> перед матчем первого круга из-за <span class='flag'>недомогания</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-19 12:00", who:"Maja Chwalinska", whoRu:null, tour:"wta", rank:11, code:"N", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Ningbo before her first round match.",
+   ru:"снялась с <b>Ningbo</b> перед матчем первого круга из-за <span class='flag'>бедра</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-18 12:00", who:"Holger Rune", whoRu:"Хольгер Руне", tour:"atp", rank:195, code:"B", kind:"injury", sig:"wd_mid",
    en:"withdrew from Brussels before his first round match.",
    ru:"снялся с <b>Brussels</b> перед матчем первого круга из-за <span class='flag'>spasms</span>.",
