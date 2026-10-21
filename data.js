@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-21 02:40";
+const UPDATED = "2026-10-21 06:50";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -145,6 +145,30 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-20 12:00", who:"Peyton Stearns", whoRu:null, tour:"wta", rank:37, code:"O", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-4, 0-6, 4-0 to Katerina Siniakova in the first round of Osaka on Tuesday.",
+   ru:"снялась при 6-4 0-6 4-0 против Katerina Siniakova в первом круге <b>Osaka</b>, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-20 12:00", who:"Kimberly Birrell", whoRu:null, tour:"wta", rank:41, code:"O", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Osaka before her first round match.",
+   ru:"снялась с <b>Osaka</b> перед матчем первого круга из-за <span class='flag'>икры</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-20 12:00", who:"Iga Swiatek", whoRu:null, tour:"wta", rank:9, code:"N", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Ningbo before her first round match.",
+   ru:"снялась с <b>Ningbo</b> перед матчем первого круга из-за <span class='flag'>бедра</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-20 12:00", who:"Jelena Ostapenko", whoRu:null, tour:"wta", rank:24, code:"N", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-3, 1-1 to Belinda Bencic in the first round of Ningbo on Tuesday.",
+   ru:"снялась при 6-3 1-1 против Белинда Бенчич в первом круге <b>Ningbo</b>, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-20 12:00", who:"Jaume Munar", whoRu:"Жауме Мунар", tour:"atp", rank:51, code:"B", kind:"injury", sig:"wd_mid",
+   en:"withdrew from Brussels before his second round match against Arthur Fils.",
+   ru:"снялся с <b>Brussels</b> перед матчем второго круга против Arthur Fils из-за <span class='flag'>спины</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-20 12:00", who:"Alexander Blockx", whoRu:null, tour:"atp", rank:27, code:"B", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Brussels before his first round match.",
+   ru:"снялся с <b>Brussels</b> перед матчем первого круга из-за <span class='flag'>голеностопа</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-19 12:00", who:"Caty McNally", whoRu:null, tour:"wta", rank:59, code:"O", kind:"injury", sig:"retired", auto:true,
    en:"retired down 6-4, 3-1 to Sinja Kraus in the first round of Osaka on Monday.",
    ru:"снялась с <span class='flag'>проблемой спины</span> при 6-4 3-1 против Sinja Kraus в первом круге <b>Osaka</b>.",
