@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-22 00:24";
+const UPDATED = "2026-10-22 06:50";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -145,6 +145,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-21 12:00", who:"Marta Kostyuk", whoRu:null, tour:"wta", rank:10, code:"N", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-4, 0-0 to Ekaterina Alexandrova in the second round of Ningbo on Wednesday.",
+   ru:"снялась с <span class='flag'>проблемой запястья</span> при 6-4 0-0 против Ekaterina Alexandrova во втором круге <b>Ningbo</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-20 12:00", who:"Peyton Stearns", whoRu:null, tour:"wta", rank:37, code:"O", kind:"injury", sig:"retired", auto:true,
    en:"retired down 6-4, 0-6, 4-0 to Katerina Siniakova in the first round of Osaka on Tuesday.",
    ru:"снялась при 6-4 0-6 4-0 против Katerina Siniakova в первом круге <b>Osaka</b>, причина не раскрыта.",
