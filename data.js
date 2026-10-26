@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-26 15:29";
+const UPDATED = "2026-10-26 23:21";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -133,6 +133,7 @@ const t = k => UI[LANG][k];
 
 /* Турниры: код → название для карточек. */
 const TOURN = {
+  V:"V",
   W:"W",
   B:"B",
   C:"C",
@@ -145,6 +146,26 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-26 12:00", who:"Maja Chwalinska", whoRu:null, tour:"wta", rank:11, code:"T", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Tokyo before her second round match.",
+   ru:"снялась с <b>Tokyo</b> перед матчем второго круга из-за <span class='flag'>бедра</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-26 12:00", who:"Belinda Bencic", whoRu:"Белинда Бенчич", tour:"wta", rank:20, code:"T", kind:"injury", sig:"wd_mid",
+   en:"withdrew from Tokyo before her first round match.",
+   ru:"снялась с <b>Tokyo</b> перед матчем первого круга из-за <span class='flag'>голеностопа</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-26 12:00", who:"Stefanos Tsitsipas", whoRu:null, tour:"atp", rank:33, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew Basel before his first round match.",
+   ru:"withdrew Basel before his first round match.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-26 12:00", who:"Alejandro Davidovich Fokina", whoRu:"Алехандро Давидович Фокина", tour:"atp", rank:15, code:"B", kind:"injury", sig:"wd_mid",
+   en:"withdrew from Basel before his first round match.",
+   ru:"снялся с <b>Basel</b> перед матчем первого круга из-за <span class='flag'>недомогания</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-26 12:00", who:"Jacob Fearnley", whoRu:null, tour:"atp", rank:86, code:"V", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 5-1 to Arthur Fery in the first round of Vienna on Monday.",
+   ru:"снялся при 5-1 против Arthur Fery в первом круге <b>Vienna</b>, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-25 12:00", who:"Alexander Bublik", whoRu:null, tour:"atp", rank:20, code:"B", kind:"injury", sig:"wd_mid", auto:true,
    en:"withdrew from Basel before his first round match.",
    ru:"снялся с <b>Basel</b> перед матчем первого круга из-за <span class='flag'>колена</span>.",
