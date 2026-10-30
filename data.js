@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-30 12:43";
+const UPDATED = "2026-10-30 20:50";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -133,6 +133,7 @@ const t = k => UI[LANG][k];
 
 /* Турниры: код → название для карточек. */
 const TOURN = {
+  PPO:"PPO",
   V:"V",
   W:"W",
   B:"B",
@@ -146,6 +147,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-30 12:00", who:"Polina Kudermetova", whoRu:null, tour:"wta", rank:91, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
+   en:"Kudermetova lost to Janice Tjen in the round of 32 of the Guangzhou Open with a score of 6-2, 6-2 on Tuesday.",
+   ru:"Kudermetova lost to Janice Tjen in the round of 32 of the Guangzhou Open with a score of 6-2, 6-2 on Tuesday.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-30 12:00", who:"Elena Rybakina", whoRu:"Елена Рыбакина", tour:"wta", rank:1, code:"PPO", kind:"injury", sig:"retired", auto:true,
+   en:"Rybakina retired before the start of the quarterfinal of the Pan Pacific Open against Leylah Fernandez on Friday.",
+   ru:"Rybakina retired before the start of the quarterfinal of the Pan Pacific Open against Leylah Fernandez on Friday.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-29 12:00", who:"Flavio Cobolli", whoRu:null, tour:"atp", rank:6, code:"V", kind:"injury", sig:"retired", auto:true,
    en:"retired down 5-2 to Matteo Berrettini in the second round of Vienna on Thursday.",
    ru:"снялся при 5-2 против Matteo Berrettini во втором круге <b>Vienna</b>, причина не раскрыта.",
