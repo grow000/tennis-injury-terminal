@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-29 21:12";
+const UPDATED = "2026-10-30 03:40";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -146,6 +146,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-29 12:00", who:"Flavio Cobolli", whoRu:null, tour:"atp", rank:6, code:"V", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 5-2 to Matteo Berrettini in the second round of Vienna on Thursday.",
+   ru:"снялся при 5-2 против Matteo Berrettini во втором круге <b>Vienna</b>, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-10-29 12:00", who:"Katerina Siniakova", whoRu:null, tour:"wta", rank:49, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from her second round match against Claire Liu in Guangzhou.",
+   ru:"withdrew from her second round match against Claire Liu in Guangzhou.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-26 12:00", who:"Maja Chwalinska", whoRu:null, tour:"wta", rank:11, code:"T", kind:"injury", sig:"wd_mid", auto:true,
    en:"withdrew from Tokyo before her second round match.",
    ru:"снялась с <b>Tokyo</b> перед матчем второго круга из-за <span class='flag'>бедра</span>.",
