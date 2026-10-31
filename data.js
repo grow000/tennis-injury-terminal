@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-10-31 01:02";
+const UPDATED = "2026-10-31 07:41";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -147,6 +147,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-10-30 12:00", who:"Arthur Fils", whoRu:null, tour:"atp", rank:8, code:"B", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-2, 2-0 to Taylor Fritz in the quarterfinals of Basel on Friday.",
+   ru:"снялся с <span class='flag'>проблемой ноги</span> при 6-2 2-0 против Taylor Fritz в четвертьфинале <b>Basel</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-10-30 12:00", who:"Polina Kudermetova", whoRu:null, tour:"wta", rank:91, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
    en:"Kudermetova lost to Janice Tjen in the round of 32 of the Guangzhou Open with a score of 6-2, 6-2 on Tuesday.",
    ru:"Kudermetova lost to Janice Tjen in the round of 32 of the Guangzhou Open with a score of 6-2, 6-2 on Tuesday.",
