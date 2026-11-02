@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-11-02 13:41";
+const UPDATED = "2026-11-03 00:30";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -148,6 +148,18 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-11-02 12:00", who:"Alexander Blockx", whoRu:null, tour:"atp", rank:28, code:"P", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Paris before his first round match.",
+   ru:"снялся с <b>Paris</b> перед матчем первого круга из-за <span class='flag'>голеностопа</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-11-02 12:00", who:"Elsa Jacquemot", whoRu:null, tour:"wta", rank:130, code:"C", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Chennai before her first round match.",
+   ru:"снялась с <b>Chennai</b> перед матчем первого круга из-за <span class='flag'>живота</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-11-02 12:00", who:"Harriet Dart", whoRu:null, tour:"wta", rank:84, code:"C", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Chennai before her first round match.",
+   ru:"снялась с <b>Chennai</b> перед матчем первого круга из-за <span class='flag'>живота</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-11-01 12:00", who:"Xinran Sun", whoRu:null, tour:"atp", rank:null, code:"HK", kind:"injury", sig:"wd_mid", auto:true,
    en:"withdrew from Hong Kong before her first round match.",
    ru:"снялся с <b>Hong Kong</b> перед матчем первого круга из-за <span class='flag'>lower body</span>.",
