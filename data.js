@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-11-03 16:49";
+const UPDATED = "2026-11-03 23:49";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -148,6 +148,18 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-11-03 12:00", who:"Francisco Cerundolo", whoRu:null, tour:"atp", rank:20, code:"P", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 3-6, 7-6 (2), 2-0 to Arthur Rinderknech in the first round of Paris on Tuesday.",
+   ru:"снялся при 3-6 7-6 (2) 2-0 против Arthur Rinderknech в первом круге <b>Paris</b>, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-11-03 12:00", who:"Alejandro Davidovich Fokina", whoRu:"Алехандро Давидович Фокина", tour:"atp", rank:17, code:"P", kind:"injury", sig:"wd_mid",
+   en:"withdrew from Paris before his first round match.",
+   ru:"снялся с <b>Paris</b> перед матчем первого круга из-за <span class='flag'>спины</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-11-03 12:00", who:"Stefanos Tsitsipas", whoRu:null, tour:"atp", rank:34, code:"P", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Paris before his first round match.",
+   ru:"снялся с <b>Paris</b> перед матчем первого круга из-за <span class='flag'>плеча</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-11-02 12:00", who:"Denis Shapovalov", whoRu:"Денис Шаповалов", tour:"atp", rank:51, code:"P", kind:"injury", sig:"retired", auto:true,
    en:"retired while leading 3-6, 7-6 (6), 4-1 over Karen Khachanov in the first round of Paris on Monday.",
    ru:"retired while leading 3-6, 7-6 (6), 4-1 over Karen Khachanov in the first round of Paris on Monday.",
