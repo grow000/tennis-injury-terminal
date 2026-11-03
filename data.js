@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-11-03 00:30";
+const UPDATED = "2026-11-03 08:50";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -148,6 +148,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-11-02 12:00", who:"Denis Shapovalov", whoRu:"Денис Шаповалов", tour:"atp", rank:51, code:"P", kind:"injury", sig:"retired", auto:true,
+   en:"retired while leading 3-6, 7-6 (6), 4-1 over Karen Khachanov in the first round of Paris on Monday.",
+   ru:"retired while leading 3-6, 7-6 (6), 4-1 over Karen Khachanov in the first round of Paris on Monday.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-11-02 12:00", who:"Flavio Cobolli", whoRu:null, tour:"atp", rank:6, code:"P", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Paris before his first round match.",
+   ru:"снялся с <b>Paris</b> перед матчем первого круга из-за <span class='flag'>ноги</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-11-02 12:00", who:"Alexander Blockx", whoRu:null, tour:"atp", rank:28, code:"P", kind:"injury", sig:"wd_mid", auto:true,
    en:"withdrew from Paris before his first round match.",
    ru:"снялся с <b>Paris</b> перед матчем первого круга из-за <span class='flag'>голеностопа</span>.",
