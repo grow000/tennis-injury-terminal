@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-11-03 23:49";
+const UPDATED = "2026-11-04 04:06";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -148,6 +148,14 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-11-03 12:00", who:"Paula Badosa", whoRu:null, tour:"wta", rank:57, code:"HK", kind:"injury", sig:"illness", auto:true,
+   en:"retired down 7-5, 0-0 to Elena Pridankina in the first round of Hong Kong on Tuesday.",
+   ru:"снялась из-за <span class='flag'>недомогания</span> при 7-5 0-0 против Elena Pridankina в первом круге <b>Hong Kong</b>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
+  {ts:"2026-11-03 12:00", who:"Alycia Parks", whoRu:null, tour:"wta", rank:59, code:"HK", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from Hong Kong before her first round match.",
+   ru:"снялась с <b>Hong Kong</b> перед матчем первого круга из-за <span class='flag'>плеча</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-11-03 12:00", who:"Francisco Cerundolo", whoRu:null, tour:"atp", rank:20, code:"P", kind:"injury", sig:"retired", auto:true,
    en:"retired down 3-6, 7-6 (2), 2-0 to Arthur Rinderknech in the first round of Paris on Tuesday.",
    ru:"снялся при 3-6 7-6 (2) 2-0 против Arthur Rinderknech в первом круге <b>Paris</b>, причина не раскрыта.",
