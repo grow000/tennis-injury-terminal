@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-11-06 22:02";
+const UPDATED = "2026-11-07 03:41";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -148,6 +148,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-11-06 12:00", who:"Lucrezia Stefanini", whoRu:null, tour:"wta", rank:117, code:"C", kind:"injury", sig:"retired", auto:true,
+   en:"retired down 6-2, 5-2 to Anastasia Zakharova in the quarterfinals of Chennai on Friday.",
+   ru:"снялась при 6-2 5-2 против Anastasia Zakharova в четвертьфинале <b>Chennai</b>, причина не раскрыта.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-11-05 12:00", who:"Matteo Berrettini", whoRu:null, tour:"atp", rank:43, code:"P", kind:"withdrawal", sig:"wd_mid", auto:true,
    en:"withdrew from Paris before his third round match against Carlos Alcaraz.",
    ru:"снялся с <b>Paris</b> перед матчем третьего круга против Карлос Алькарас, причина не раскрыта.",
