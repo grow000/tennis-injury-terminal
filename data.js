@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-11-07 20:35";
+const UPDATED = "2026-11-08 00:36";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -133,6 +133,7 @@ const t = k => UI[LANG][k];
 
 /* Турниры: код → название для карточек. */
 const TOURN = {
+  WF:"WF",
   HK:"HK",
   PPO:"PPO",
   V:"V",
@@ -148,6 +149,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-11-07 12:00", who:"Elena Rybakina", whoRu:"Елена Рыбакина", tour:"wta", rank:1, code:"WF", kind:"withdrawal", sig:"wd_mid", auto:true,
+   en:"withdrew from the WTA Finals in Indian Wells on Saturday.",
+   ru:"withdrew from the WTA Finals in Indian Wells on Saturday.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-11-06 12:00", who:"Lucrezia Stefanini", whoRu:null, tour:"wta", rank:117, code:"C", kind:"injury", sig:"retired", auto:true,
    en:"retired down 6-2, 5-2 to Anastasia Zakharova in the quarterfinals of Chennai on Friday.",
    ru:"снялась при 6-2 5-2 против Anastasia Zakharova в четвертьфинале <b>Chennai</b>, причина не раскрыта.",
