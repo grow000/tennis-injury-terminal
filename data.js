@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-11-09 14:03";
+const UPDATED = "2026-11-10 01:03";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -149,6 +149,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-11-09 12:00", who:"Luca Van Assche", whoRu:null, tour:"atp", rank:34, code:"S", kind:"withdrawal", sig:"rest", auto:true,
+   en:"withdrew from Stockholm before his first round match.",
+   ru:"снялся с <b>Stockholm</b> перед матчем первого круга, причина указана как отдых.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-11-07 12:00", who:"Elena Rybakina", whoRu:"Елена Рыбакина", tour:"wta", rank:1, code:"WF", kind:"withdrawal", sig:"wd_mid", auto:true,
    en:"withdrew from the WTA Finals in Indian Wells on Saturday.",
    ru:"withdrew from the WTA Finals in Indian Wells on Saturday.",
