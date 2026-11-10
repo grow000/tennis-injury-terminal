@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-11-10 09:31";
+const UPDATED = "2026-11-10 19:51";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -149,6 +149,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-11-10 12:00", who:"Tomas Martin Etcheverry", whoRu:null, tour:"atp", rank:29, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
+   en:"withdrew from his second round match in Stockholm against Thiago Agustin Tirante.",
+   ru:"снялся с матча второго круга в <b>Stockholm</b> против Thiago Agustin Tirante из-за <span class='flag'>икры</span>.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-11-09 12:00", who:"Luca Van Assche", whoRu:null, tour:"atp", rank:34, code:"S", kind:"withdrawal", sig:"rest", auto:true,
    en:"withdrew from Stockholm before his first round match.",
    ru:"снялся с <b>Stockholm</b> перед матчем первого круга, причина указана как отдых.",
