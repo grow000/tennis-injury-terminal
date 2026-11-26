@@ -3,7 +3,7 @@
    а новые записи RotoWire печатает заготовками для вставки в NEWS. */
 
 /* Когда данные последний раз сверяли с источниками (MSK). */
-const UPDATED = "2026-11-26 15:01";
+const UPDATED = "2026-11-27 02:33";
 
 /* Турнир, ради которого считается вкладка риска. */
 const EVENT = {name:"US Open", mainDraw:"2026-08-30"};
@@ -149,6 +149,10 @@ const TOURN = {
 /* tour — atp/wta, rank — место в рейтинге на 25.08.2026 (live-tennis.eu),
    repl — кто вошёл в сетку вместо снявшегося. */
 const NEWS = [
+  {ts:"2026-11-26 12:00", who:"Jannik Sinner", whoRu:"Янник Синнер", tour:"atp", rank:2, code:"TBD", kind:"injury", sig:"wd_mid", auto:true,
+   en:"Sinner announced earlier this week that he underwent knee surgery on his iliotibial band.",
+   ru:"Sinner announced earlier this week that he underwent knee surgery on his iliotibial band.",
+   src:"https://www.rotowire.com/tennis/news.php?view=injuries", srcName:"RotoWire"},
   {ts:"2026-11-12 12:00", who:"Holger Rune", whoRu:"Хольгер Руне", tour:"atp", rank:null, code:"S", kind:"injury", sig:"wd_mid",
    en:"withdrew from Stockholm before his quarterfinal match against Taylor Fritz on Friday.",
    ru:"снялся с <b>Stockholm</b> перед матчем четвертьфинала против Taylor Fritz on Friday из-за <span class='flag'>ноги</span>.",
